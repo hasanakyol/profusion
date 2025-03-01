@@ -9,19 +9,75 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Profusion - Design, Development and Operations for SME's.",
-  description:
-    "Design, Development, and Operations by ex-UBS, HSBC, and Shell leads for SME's.",
+  metadataBase: new URL('https://profusion.io'),
+  title: "Profusion - Enterprise Expertise at Startup Speed",
+  description: "Design, Development, and Operations by ex-UBS, HSBC, and Shell leads. Enterprise-grade solutions at startup speed with fixed pricing.",
+  keywords: ["enterprise development", "startup speed", "fixed pricing", "UBS", "HSBC", "Shell", "tech consulting", "software development", "digital transformation"],
+  authors: [{ name: "Profusion" }],
+  creator: "Profusion",
+  publisher: "Profusion",
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: "https://profusion.io",
+    siteName: "Profusion",
+    title: "Profusion - Enterprise Expertise at Startup Speed",
+    description: "Design, Development, and Operations by ex-UBS, HSBC, and Shell leads. Enterprise-grade solutions at startup speed with fixed pricing.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Profusion - Enterprise Expertise at Startup Speed",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Profusion - Enterprise Expertise at Startup Speed",
+    description: "Design, Development, and Operations by ex-UBS, HSBC, and Shell leads. Enterprise-grade solutions at startup speed with fixed pricing.",
+    images: ["/twitter-image.jpg"],
+    creator: "@profusion",
+  },
+  alternates: {
+    canonical: "https://profusion.io",
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
+  category: "technology",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={inter.className}>
+      <body>{children}</body>
     </html>
   )
 }
