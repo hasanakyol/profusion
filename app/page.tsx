@@ -266,7 +266,7 @@ export default function Home() {
             </p>
             <p>
               Email:{" "}
-              <a href="mailto:edge@profusion.io" className="underline hover:text-swiss-red transition-colors text-primary">
+              <a href="mailto:hello@profusion.io" className="underline hover:text-swiss-red transition-colors text-primary">
                 hello@profusion.io
               </a>
             </p>
