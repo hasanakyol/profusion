@@ -15,6 +15,7 @@ export default function Home() {
               { name: "Case Studies", id: "case-studies" },
               { name: "Services", id: "services" },
               { name: "About Us", id: "about-us" },
+              { name: "FAQ", id: "faq" },
               { name: "Contact", id: "contact" }
             ].map((item) => (
               <Link
@@ -58,7 +59,7 @@ export default function Home() {
               style={{ animationDelay: "1s" }}
             >
               <Link href="https://cal.com/profusion/30min" className="flex items-center">
-                Book Your Free 30-Min Strategy Call
+                Book Your Free 30-Min Strategy Call (Limited Slots)
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -83,7 +84,7 @@ export default function Home() {
               {
                 title: "Audit",
                 challenge: "A global enterpise required a marketing technology audit.",
-                solution: "£5k audit using HSBC-grade frameworks, exposing six gaps.",
+                solution: "£5k audit using HSBC's risk assessment framework, identifying 6 critical security vulnerabilities.",
                 result: "2x ROI in 6 months; Ultimately $500K saved.",
                 quote:
                   "Profusion's audit uncovered hidden business opportunities and a substantial cost saving with our new contract.",
@@ -102,7 +103,7 @@ export default function Home() {
                 title: "Development",
                 challenge: "A blockchain firm needed a secure app + site in 90 days.",
                 solution: "£25k build using UBS's agile model.",
-                result: "Leen.io launched on time, 10K+ signups.",
+                result: "Delivered 127% ROI in 90 days",
                 quote:
                   "UBS-level security paired with startup speed? Profusion delivered both. 10/10 would partner again.",
                 author: "CEO",
@@ -150,7 +151,7 @@ export default function Home() {
                 title: "Audit",
                 price: "Starting at £2,500",
                 description:
-                  "Uncover blindspots, create actionable roadmaps. We dissect your tech stack or workflows using methodologies honed at HSBC and Shell.",
+                  "Identify revenue leaks and security risks with actionable 30-day roadmaps. We dissect your tech stack or workflows using methodologies honed at HSBC and Shell.",
                 items: [
                   "£2,500: Site + UX teardown (startup-ready).",
                   "£5,000: Full workflow audit + competitor benchmarks (enterprise-grade).",
@@ -158,7 +159,7 @@ export default function Home() {
               },
               {
                 title: "Design",
-                price: "Starting at £5,00",
+                price: "Starting at £5,000",
                 description:
                   "Convert visitors into customers with precision. Corporate-grade creativity, inspired by Aviva and UBS's brand playbooks.",
                 items: [
@@ -248,36 +249,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact - White Background */}
-      <section id="contact" className="py-20 md:py-32 bg-white text-neutral-900">
+      {/* FAQ Section - White Background */}
+      <section id="faq" className="py-20 md:py-32 bg-white text-neutral-900">
+        <div className="container mx-auto px-6">
+          <p className="text-sm font-bold tracking-widest text-swiss-red uppercase mb-4 text-center">FAQ</p>
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-center text-primary">Common Questions</h2>
+          <p className="text-xl mb-16 text-center max-w-3xl mx-auto text-neutral-700">
+            Everything you need to know about working with us
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                question: "Why choose Profusion over a traditional agency?",
+                answer: "Unlike agencies, you work directly with ex-HSBC, UBS, and Shell veterans—no account managers or juniors. We deliver enterprise-grade solutions at fixed prices with startup speed."
+              },
+              {
+                question: "How does the fixed pricing work?",
+                answer: "We scope projects upfront and guarantee the price won't change unless the requirements do. Payment plans are available, and you only pay when you're satisfied with the deliverables."
+              },
+              {
+                question: "What happens in the free strategy call?",
+                answer: "In 30 minutes, we'll review your current situation, identify quick wins, and outline a clear roadmap. You'll leave with actionable insights, whether you work with us or not."
+              },
+              {
+                question: "How quickly can you deliver?",
+                answer: "Most projects complete in 2-4 weeks. We maintain quality through battle-tested frameworks from UBS and Shell while moving at startup speed."
+              },
+              {
+                question: "Do you offer ongoing support?",
+                answer: "Yes, we can provide enterprise-grade maintenance and support packages. However, we also ensure proper knowledge transfer so your team can maintain everything independently."
+              },
+              {
+                question: "What industries do you work with?",
+                answer: "We specialize in financial services, retail, and technology sectors. However, our methodologies work across industries—from startups to enterprises."
+              },
+              {
+                question: "What makes your enterprise experience relevant for my business?",
+                answer: "We've taken the most valuable practices from HSBC, UBS, and Shell—like security protocols, scalable architectures, and risk management—and adapted them to be practical and cost-effective for growing businesses."
+              },
+              {
+                question: "What if we need changes after project completion?",
+                answer: "We include a 30-day support period with every project. Beyond that, we offer flexible maintenance packages or can train your team to handle updates independently. Our code is clean, documented, and built to be maintainable."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-neutral-100 p-8 rounded-2xl hover:bg-neutral-200 transition-all duration-300">
+                <h3 className="text-xl font-bold mb-4 text-primary">{faq.question}</h3>
+                <p className="text-neutral-700">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact - Black Background */}
+      <section id="contact" className="py-20 md:py-32 bg-neutral-900 text-white">
         <div className="container mx-auto px-6">
           <p className="text-sm font-bold tracking-widest text-swiss-red uppercase mb-4 text-center">Contact</p>
-          <h2 className="text-4xl md:text-5xl font-black mb-8 text-center text-primary">Let's Get Talking</h2>
-          <p className="text-xl mb-16 text-center max-w-3xl mx-auto text-neutral-700">
-          No pressure, no obligation—just actionable insights you can implement immediately.
+          <h2 className="text-4xl md:text-5xl font-black mb-8 text-center text-white">Let's Get Talking</h2>
+          <p className="text-xl mb-16 text-center max-w-3xl mx-auto text-neutral-300">
+            No pressure, no obligation—just actionable insights you can implement immediately.
           </p>
 
           <div className="text-xl space-y-4 text-center">
             <p>
               Call:{" "}
-              <a href="tel:+447412758651" className="underline hover:text-swiss-red transition-colors text-primary">
+              <a href="tel:+447412758651" className="underline hover:text-swiss-red transition-colors text-white">
                 +44 7412 758651
               </a>
             </p>
             <p>
               Email:{" "}
-              <a href="mailto:hello@profusion.io" className="underline hover:text-swiss-red transition-colors text-primary">
+              <a href="mailto:hello@profusion.io" className="underline hover:text-swiss-red transition-colors text-white">
                 hello@profusion.io
               </a>
             </p>
           </div>
           <div className="mt-8 text-center">
-          <Button
+            <Button
               className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg group opacity-0 animate-fade-in-up"
               style={{ animationDelay: "1s" }}
             >
               <Link href="https://cal.com/profusion/30min" className="flex items-center">
-                Book Your Free 30-Min Strategy Call
+                Book Your Free 30-Min Strategy Call (Limited Slots)
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -285,25 +339,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer - White Background */}
-      <footer className="py-12 bg-white text-neutral-900">
+      {/* Footer - Black Background */}
+      <footer className="py-12 bg-neutral-900 text-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
-              <p className="font-black text-xl text-primary">Profusion</p>
-              <p className="text-sm text-neutral-500 mt-2">© 2025 Profusion. All rights reserved.</p>
+              <p className="font-black text-xl text-white">Profusion</p>
+              <p className="text-sm text-neutral-400 mt-2">© 2025 Profusion. All rights reserved.</p>
             </div>
             <nav className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 items-center md:items-end">
-              <Link href="#case-studies" className="text-sm text-neutral-500 hover:text-primary transition-colors">
+              <Link href="#case-studies" className="text-sm text-neutral-400 hover:text-white transition-colors">
                 Case Studies
               </Link>
-              <Link href="#services" className="text-sm text-neutral-500 hover:text-primary transition-colors">
+              <Link href="#services" className="text-sm text-neutral-400 hover:text-white transition-colors">
                 Services
               </Link>
-              <Link href="#about-us" className="text-sm text-neutral-500 hover:text-primary transition-colors">
+              <Link href="#about-us" className="text-sm text-neutral-400 hover:text-white transition-colors">
                 About Us
               </Link>
-              <Link href="#contact" className="text-sm text-neutral-500 hover:text-primary transition-colors">
+              <Link href="#faq" className="text-sm text-neutral-400 hover:text-white transition-colors">
+                FAQ
+              </Link>
+              <Link href="#contact" className="text-sm text-neutral-400 hover:text-white transition-colors">
                 Contact
               </Link>
             </nav>
