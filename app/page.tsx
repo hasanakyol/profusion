@@ -27,7 +27,7 @@ export default function Home() {
             ))}
           </nav>
           <Button className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 ease-in-out transform hover:scale-105">
-            Book a Call
+            <Link href="https://cal.com/profusion/30min">Book a Call</Link>
           </Button>
         </div>
       </header>
@@ -51,14 +51,16 @@ export default function Home() {
               className="text-xl md:text-2xl font-light leading-relaxed opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.8s" }}
             >
-              Audit, Design, development, and operations by ex-UBS, HSBC, and Shell leads.
+              Design, Development, and Operations by ex-UBS, HSBC, and Shell leads.
             </p>
             <Button
               className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg group opacity-0 animate-fade-in-up"
               style={{ animationDelay: "1s" }}
             >
-              Book Your Free Strategy Call
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Link href="https://cal.com/profusion/30min" className="flex items-center">
+                Book Your Free Strategy Call
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
             <p className="mt-4 text-sm italic text-neutral-600 opacity-0 animate-fade-in-up" style={{ animationDelay: "1.2s" }}>
               No pressure, no obligation—just actionable insights you can implement immediately.
@@ -258,8 +260,8 @@ export default function Home() {
           <div className="text-xl space-y-4 text-center">
             <p>
               Call:{" "}
-              <a href="tel:+442079460000" className="underline hover:text-swiss-red transition-colors text-primary">
-                +44 20 7946 0000
+              <a href="tel:+447412758651" className="underline hover:text-swiss-red transition-colors text-primary">
+                +44 7412 758651
               </a>
             </p>
             <p>
@@ -274,8 +276,10 @@ export default function Home() {
               className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg group opacity-0 animate-fade-in-up"
               style={{ animationDelay: "1s" }}
             >
-              Book Your Free Strategy Call
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Link href="https://cal.com/profusion/30min" className="flex items-center">
+                Book Your Free Strategy Call
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
         </div>

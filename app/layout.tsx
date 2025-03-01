@@ -6,9 +6,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Profusion - Audit, Design, Develop and Operate.",
+  title: "Profusion - Design, Development and Operations for SME's.",
   description:
-    "Audit, Design, Development, and Operations by ex-UBS, HSBC, and Shell leads.",
+    "Design, Development, and Operations by ex-UBS, HSBC, and Shell leads for SME's.",
 }
 
 export default function RootLayout({
