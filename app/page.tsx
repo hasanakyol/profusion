@@ -58,7 +58,7 @@ export default function Home() {
               style={{ animationDelay: "1s" }}
             >
               <Link href="https://cal.com/profusion/30min" className="flex items-center">
-                Book Your Free Strategy Call
+                Book Your Free 30-Min Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -277,7 +277,7 @@ export default function Home() {
               style={{ animationDelay: "1s" }}
             >
               <Link href="https://cal.com/profusion/30min" className="flex items-center">
-                Book Your Free Strategy Call
+                Book Your Free 30-Min Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
