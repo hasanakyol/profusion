@@ -80,11 +80,11 @@ export default function Home() {
             {[
               {
                 title: "Audit",
-                challenge: "A Loyalty startup needed investor trust after a breach.",
+                challenge: "A global enterpise required a marketing technology audit.",
                 solution: "£5k audit using HSBC-grade frameworks, exposing six gaps.",
-                result: "2x ROI in 6 months; $500K saved.",
+                result: "2x ROI in 6 months; Ultimately $500K saved.",
                 quote:
-                  "Profusion's audit uncovered flaws we'd missed for years. Their HSBC-grade framework restored investor confidence overnight.",
+                  "Profusion's audit uncovered hidden business opportunities and a substantial cost saving with our new contract.",
                 author: "CIO",
               },
               {
