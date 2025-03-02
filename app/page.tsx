@@ -217,7 +217,7 @@ export default function Home() {
               <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">Case Studies</p>
               <h2 id="case-studies-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Real Results, Real Impact</h2>
               <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
-                Enterprise-grade solutions that deliver measurable ROI
+                Enterprise-grade solutions that deliver measurable ROI.
               </p>
             </div>
 
@@ -303,8 +303,7 @@ export default function Home() {
             <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">About Us</p>
             <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our DNA</h2>
             <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
-              Where Enterprise Rigor Meets Startup Hustle
-            </p>
+              Where Enterprise Rigor Meets Startup Hustle.
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
@@ -397,7 +396,7 @@ export default function Home() {
             <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">FAQ</p>
             <h2 id="faq-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Common Questions</h2>
             <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
-              Everything you need to know about working with us
+              Everything you need to know about working with us.
             </p>
           </div>
 
