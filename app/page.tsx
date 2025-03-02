@@ -33,27 +33,27 @@ export default function Home() {
       </a>
 
       {/* Navigation */}
-      <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md" role="banner">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between gap-8">
+      <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md safe-top" role="banner">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 sm:gap-8">
           <Link href="#" className="flex items-center shrink-0" aria-label="Profusion - Back to homepage">
-            <span className="relative inline-block font-black text-3xl tracking-tighter text-primary">
+            <span className="relative inline-block font-black text-2xl sm:text-3xl tracking-tighter text-primary">
               Profusion
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-swiss-red transition-all duration-200 ease-out group-hover:w-full" 
                     aria-hidden="true" />
             </span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8" role="navigation" aria-label="Main navigation">
             {[
-  { name: "Services", id: "services" },
-  { name: "Case Studies", id: "case-studies" },
-  { name: "About Us", id: "about-us" },
-  { name: "FAQ", id: "faq" },
-  { name: "Contact", id: "contact" }
+              { name: "Services", id: "services" },
+              { name: "Case Studies", id: "case-studies" },
+              { name: "About Us", id: "about-us" },
+              { name: "FAQ", id: "faq" },
+              { name: "Contact", id: "contact" }
             ].map((item) => (
               <Link
                 key={item.name}
                 href={`#${item.id}`}
-                className="nav-link relative group"
+                className="nav-link relative group text-sm lg:text-base"
                 aria-label={`Navigate to ${item.name} section`}
               >
                 <span className="relative inline-block">
@@ -65,10 +65,10 @@ export default function Home() {
             ))}
           </nav>
           <Button 
-            className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-10 py-5 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 shrink-0"
+            className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-6 sm:px-10 py-2.5 sm:py-5 text-base sm:text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 shrink-0"
             aria-label="Book a free 30-minute strategy call"
           >
-            <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center">
+            <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center whitespace-nowrap">
               Book a Call
             </Link>
           </Button>
@@ -77,23 +77,26 @@ export default function Home() {
 
       <main id="main-content" role="main">
         {/* Hero - White Background */}
-        <section className="pt-32 pb-16 sm:pt-40 md:pt-44 md:pb-32 bg-white text-neutral-900" aria-labelledby="hero-title">
+        <section 
+          className="pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-24 bg-white text-neutral-900" 
+          aria-labelledby="hero-title"
+        >
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
-              <h1 id="hero-title" className="space-y-2 sm:space-y-3">
-                <span className="block text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">Enterprise Expertise.</span>
-                <span className="block text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-swiss-red">Startup Speed.</span>
-                <span className="block text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">Fixed Pricing.</span>
+            <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8">
+              <h1 id="hero-title" className="space-y-1 sm:space-y-2 md:space-y-3">
+                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">Enterprise Expertise.</span>
+                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-swiss-red">Startup Speed.</span>
+                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">Fixed Pricing.</span>
               </h1>
-              <p className="text-xl sm:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl md:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto px-4">
                 Audit, Design, Development, and Operations by ex-UBS, HSBC, Aviva and Top-10 agency experts for your business.
               </p>
-              <Button className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-10 py-5 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105">
+              <Button className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-6 sm:px-10 py-2.5 sm:py-5 text-base sm:text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 w-full sm:w-auto mx-4 sm:mx-0">
                 <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center">
                   Book Your Free 30-Min Strategy Call
                 </Link>
               </Button>
-              <p className="text-sm italic text-neutral-600">
+              <p className="text-sm italic text-neutral-600 px-4">
                 No pressure, no obligation—just actionable insights you can implement immediately.
               </p>
             </div>
@@ -103,19 +106,19 @@ export default function Home() {
         {/* Services - Black Background */}
         <section 
           id="services" 
-          className="py-20 md:py-32 bg-neutral-900 text-white"
+          className="py-16 sm:py-20 md:py-32 bg-neutral-900 text-white"
           aria-labelledby="services-title"
         >
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12 sm:mb-16">
               <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">Services</p>
-              <h2 id="services-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our Expertise, Your Edge</h2>
-              <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
+              <h2 id="services-title" className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-2">Our Expertise, Your Edge</h2>
+              <p className="text-base sm:text-lg md:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto px-4">
                 Fixed prices. No surprises. Payment plans available.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8" role="list">
             {[
               {
                 title: "Audit",
@@ -150,17 +153,17 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
-                  className={`bg-neutral-800 p-8 rounded-2xl hover:bg-neutral-700 transition-all duration-300 transform hover:scale-105 scale-in-child stagger-delay-${index + 1}`}
-                  role="listitem"
-                >
-                  <h3 className="card-title text-white">{service.title}</h3>
-                  <p className="card-price text-neutral-300">{service.price}</p>
-                  <p className="card-description text-neutral-400">{service.description}</p>
+                className={`bg-neutral-800 p-6 sm:p-8 rounded-2xl hover:bg-neutral-700 transition-all duration-300 transform hover:scale-105 scale-in-child stagger-delay-${index + 1}`}
+                role="listitem"
+              >
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 tracking-tight text-white">{service.title}</h3>
+                <p className="text-base sm:text-lg font-medium mb-3 sm:mb-4 text-neutral-300">{service.price}</p>
+                <p className="text-sm sm:text-base mb-4 sm:mb-6 text-neutral-400 leading-relaxed">{service.description}</p>
                 {service.items.length > 0 && (
-                    <ul className="space-y-3 text-sm">
+                  <ul className="space-y-2 sm:space-y-3 text-sm">
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-start">
-                          <Check className="h-5 w-5 mr-2 flex-shrink-0 text-swiss-red" />
+                        <Check className="h-4 w-4 sm:h-5 sm:w-5 mr-2 flex-shrink-0 text-swiss-red" />
                         <span className="text-neutral-300">{item}</span>
                       </li>
                     ))}
