@@ -74,11 +74,11 @@ export default function Home() {
                 <span className="block text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">Fixed Pricing.</span>
               </h1>
               <p className="text-xl sm:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto">
-                Design, Development, and Operations by ex-UBS, HSBC, and Shell leads.
+                Audit, Design, Development, and Operations by ex-UBS, HSBC, Aviva and Top-10 agency subject matter experts.
               </p>
               <Button className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-10 py-5 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105">
                 <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center">
-                  Book Your Free 30-Min Strategy Call (Limited Slots)
+                  Book Your Free 30-Min Strategy Call
                 </Link>
               </Button>
             </div>
