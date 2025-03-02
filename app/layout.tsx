@@ -73,10 +73,7 @@ export const metadata: Metadata = {
     statusBarStyle: 'black-translucent',
     title: 'Profusion',
   },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#171717' },
-    { media: '(prefers-color-scheme: dark)', color: '#171717' }
-  ],
+  themeColor: 'transparent',
   colorScheme: 'light',
 }
 
