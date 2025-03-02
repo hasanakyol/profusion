@@ -81,6 +81,9 @@ export default function Home() {
                   Book Your Free 30-Min Strategy Call
                 </Link>
               </Button>
+              <p className="text-sm italic text-neutral-600">
+                No pressure, no obligation—just actionable insights you can implement immediately.
+              </p>
             </div>
           </div>
         </section>
@@ -106,7 +109,7 @@ export default function Home() {
                 title: "Audit",
                 price: "Starting at £2,500",
                 description:
-                  "Identify revenue leaks and security risks with actionable 30-day roadmaps. We dissect your tech stack or workflows using methodologies honed at HSBC and Shell.",
+                  "Identify revenue leaks and security risks with actionable 30-day roadmaps. We dissect your tech stack or workflows using methodologies honed at HSBC and UBS.",
                 items: [
                   "£2,500: Site + UX teardown (startup-ready).",
                   "£5,000: Full workflow audit + competitor benchmarks (enterprise-grade).",
@@ -126,7 +129,7 @@ export default function Home() {
                 title: "Development",
                 price: "Starting at £7,500",
                 description:
-                  "Enterprise-grade solutions that scale. Code that lasts, built by senior developers trained in Shell's enterprise rigor.",
+                  "Enterprise-grade solutions that scale seamlessly. Code that lasts and evolves, built by senior developers with proven enterprise rigor.",
                 items: [
                   "£7,500: Secure, fast web site (2-week delivery).",
                   "15,000: Custom web or mobile app as a minimal viable product (MVP).",
@@ -272,7 +275,7 @@ export default function Home() {
               {
                 title: "No Hierarchies, Just Expertise",
                 price: "Direct Access",
-                description: "Work directly with ex-HSBC, UBS, and Shell veterans. No account managers, no middlemen—just seasoned experts who've solved similar challenges.",
+                description: "Work directly with ex-HSBC, UBS, and Aviva veterans. No account managers, no middlemen—just seasoned experts who've solved similar challenges.",
                 items: [
                   "Direct access to senior experts",
                   "20+ years enterprise experience"
@@ -357,7 +360,7 @@ export default function Home() {
               {[
                 {
                   question: "Why choose Profusion over a traditional agency?",
-                  answer: "Direct access to ex-HSBC, UBS, and Shell design and technical leads—no juniors, no account managers, no bureaucracy. You get enterprise-grade solutions at 30-40% lower cost, delivered at startup speed. Think bank-level quality without the bloated agency pricing and endless meetings."
+                  answer: "Direct access to ex-HSBC, UBS, and Aviva design and technical leads—no juniors, no account managers, no bureaucracy. You get enterprise-grade solutions at 30-40% lower cost, delivered at startup speed. Think bank-level quality without the bloated agency pricing and endless meetings."
                 },
                 {
                   question: "How does your fixed pricing work?",
@@ -369,11 +372,11 @@ export default function Home() {
                 },
                 {
                   question: "How quickly can you deliver?",
-                  answer: "Most projects launch within 2-4 weeks. We achieve this through battle-tested frameworks from UBS and Shell, automated testing, and parallel execution. Our senior-only team means zero training overhead and no junior mistakes slowing things down. Enterprise quality at startup speed."
+                  answer: "Most projects launch within 2-4 weeks. We achieve this through battle-tested frameworks from UBS, automated testing, and parallel execution. Our senior-only team means zero training overhead and no junior mistakes slowing things down. Enterprise quality at startup speed."
                 },
                 {
                   question: "What makes your enterprise experience valuable for my business?",
-                  answer: "We've distilled two decades of HSBC, UBS, and Shell best practices into practical solutions that work for any size business. You get bank-level security, scalable architecture, and risk management—without the enterprise complexity or cost. It's about future-proofing your business from day one."
+                  answer: "We've distilled two decades of HSBC and UBS best practices into practical solutions that work for any size business. You get bank-level security, scalable architecture, and risk management—without the enterprise complexity or cost. It's about future-proofing your business from day one."
                 },
                 {
                   question: "How do you maintain quality at such speed?",
@@ -389,7 +392,7 @@ export default function Home() {
                 },
                 {
                   question: "Can you handle complex technical challenges?",
-                  answer: "Complex challenges are our sweet spot. We've architected trading platforms for UBS, security systems for HSBC, and scalable solutions for Shell. Now we bring that same expertise to your business. If it's technical and mission-critical, we've probably solved it at enterprise scale."
+                  answer: "Complex challenges are our sweet spot. We've architected trading platforms for UBS, security systems for HSBC, and enterprise solutions for Fortune 500 companies. Now we bring that same expertise to your business. If it's technical and mission-critical, we've probably solved it at enterprise scale."
                 },
                 {
                   question: "Why are you launching your own brand now?",
@@ -427,8 +430,8 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold tracking-wider uppercase text-swiss-red">Contact</p>
-            <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Let's Get Talking</h2>
-            <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
+            <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Let's Get Started</h2>
+            <p className="text-lg sm:text-m font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
               No pressure, no obligation—just actionable insights you can implement immediately.
             </p>
           </div>
