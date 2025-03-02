@@ -153,6 +153,36 @@ export default function Home() {
                   "15,000: Custom web or mobile app as a minimal viable product (MVP).",
                 ],
               },
+              {
+                title: "Operations",
+                price: "Starting at £3,000",
+                description:
+                  "Optimize your business operations with our tailored support. We streamline day-to-day activities, eliminating bottlenecks and freeing you to focus on growth, using proven strategies from enterprise playbooks.",
+                items: [
+                  "£3,000: Operational assessment and core support package (e.g., workflow optimization, task automation).",
+                  "£6,000: Comprehensive operations overhaul (e.g., end-to-end process reengineering, staff training, real-time performance monitoring).",
+                ],
+              },
+              {
+                title: "Retainer",
+                price: "Starting at £2,500/month",
+                description:
+                  "Secure continuous access to our expertise with a flexible retainer. From design tweaks to development sprints and operational support, we're your on-call team for anything you need, delivered with enterprise-grade precision.",
+                items: [
+                  "£2,500/month: 20 hours of adaptable services per month, tailored to your evolving priorities.",
+                  "£5,000/month: 50 hours of services per month, including proactive strategy sessions and expedited delivery.",
+                ],
+              },
+              {
+                title: "In-house",
+                price: "Starting at £10,000/month",
+                description:
+                  "Embed our specialists in your office for hands-on collaboration and rapid results. We tackle everything you need on-site, from intensive projects to skill gaps, with the rigor of top-tier consultancies.",
+                items: [
+                  "£10,000/month: One full-time specialist on-site, dedicated to your goals (e.g., senior developer, UX designer, operations lead).",
+                  "£20,000/month: Team of two specialists or extended engagement for complex, high-stakes challenges.",
+                ],
+              },
             ].map((service, index) => (
               <div
                 key={index}
