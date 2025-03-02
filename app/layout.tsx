@@ -68,6 +68,13 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   category: "technology",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Profusion',
+  },
+  themeColor: '#171717',
+  colorScheme: 'light',
 }
 
 export default function RootLayout({

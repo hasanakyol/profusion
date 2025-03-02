@@ -10,10 +10,22 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import JsonLd from './components/JsonLd'
+import Head from 'next/head'
 
 export default function Home() {
   return (
     <div className="min-h-screen font-sans">
+      <Head>
+        {/* iOS status bar style */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        
+        {/* Android status bar color - using our neutral-900 color */}
+        <meta name="theme-color" content="#171717" />
+        
+        {/* PWA color scheme */}
+        <meta name="color-scheme" content="light" />
+      </Head>
       <JsonLd />
       {/* Skip to main content link */}
       <a href="#main-content" className="skip-to-content">
@@ -74,7 +86,7 @@ export default function Home() {
                 <span className="block text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">Fixed Pricing.</span>
               </h1>
               <p className="text-xl sm:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto">
-                Audit, Design, Development, and Operations by ex-UBS, HSBC, Aviva and Top-10 agency subject matter experts.
+                Audit, Design, Development, and Operations by ex-UBS, HSBC, Aviva and Top-10 agency experts for your business.
               </p>
               <Button className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-10 py-5 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105">
                 <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center">
