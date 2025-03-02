@@ -34,15 +34,15 @@ export default function Home() {
 
       {/* Navigation */}
       <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md" role="banner">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="#" className="relative group" aria-label="Profusion - Back to homepage">
-            <span className="relative inline-block font-black text-3xl tracking-tighter bg-gradient-to-r from-primary via-swiss-red to-primary bg-clip-text text-transparent animate-text-gradient">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between gap-8">
+          <Link href="#" className="flex items-center shrink-0" aria-label="Profusion - Back to homepage">
+            <span className="relative inline-block font-black text-3xl tracking-tighter text-primary">
               Profusion
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-swiss-red transition-all duration-200 ease-out group-hover:w-full" 
                     aria-hidden="true" />
             </span>
           </Link>
-          <nav className="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
             {[
   { name: "Services", id: "services" },
   { name: "Case Studies", id: "case-studies" },
@@ -65,7 +65,7 @@ export default function Home() {
             ))}
           </nav>
           <Button 
-            className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-10 py-5 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105"
+            className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-10 py-5 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 shrink-0"
             aria-label="Book a free 30-minute strategy call"
           >
             <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center">
@@ -190,7 +190,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
               {[
   {
-    title: "FinTech Security Audit",
+    title: "Audit: FinTech",
     price: "£5,000 Investment",
     description:
       "Using HSBC's risk assessment framework, we identified critical vulnerabilities and optimization opportunities for a global fintech platform.",
@@ -204,7 +204,7 @@ export default function Home() {
     author: "— Chief Information Officer"
   },
   {
-    title: "E-commerce Redesign",
+    title: "Design: E-commerce",
     price: "£10,000 Investment",
     description:
       "Transformed a struggling mobile experience into a revenue powerhouse using Aviva's proven UX principles and conversion optimization.",
@@ -218,8 +218,8 @@ export default function Home() {
     author: "— Chief Product Officer"
   },
   {
-    title: "Blockchain Platform",
-    price: "£25,000 Investment",
+    title: "Development: Blockchain",
+    price: "£15,000 Investment",
     description:
       "Delivered a secure, scalable blockchain platform in 90 days using UBS's agile methodology and enterprise security standards.",
     items: [
@@ -475,7 +475,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <div className="text-center sm:text-left">
               <Link href="#" className="link-underline group">
-                <span className="font-black text-xl bg-gradient-to-r from-primary via-swiss-red to-primary bg-clip-text text-transparent animate-text-gradient">
+                <span className="font-black text-xl text-primary">
                   Profusion
                 </span>
               </Link>
