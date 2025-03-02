@@ -35,11 +35,9 @@ export default function Home() {
       {/* Navigation */}
       <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md safe-top" role="banner">
         <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 sm:gap-8">
-          <Link href="#" className="flex items-center shrink-0" aria-label="Profusion - Back to homepage">
+          <Link href="#" className="link-underline group" aria-label="Profusion - Back to homepage">
             <span className="relative inline-block font-black text-2xl sm:text-3xl tracking-tighter text-primary">
               Profusion
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-swiss-red transition-all duration-200 ease-out group-hover:w-full" 
-                    aria-hidden="true" />
             </span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8" role="navigation" aria-label="Main navigation">
@@ -411,6 +409,10 @@ export default function Home() {
                   answer: "Direct access to ex-HSBC, UBS, and Aviva design and technical leads—no juniors, no account managers, no bureaucracy. You get enterprise-grade solutions at 30-40% lower cost, delivered at startup speed. Think bank-level quality without the bloated agency pricing and endless meetings."
                 },
                 {
+                  question: "Where are you based?",
+                  answer: "We're a fully remote team by design, not by accident. This model lets us tap into elite talent across London, Hamburg, and Bangalore while keeping our overhead low—savings we pass directly to you. When projects demand it, we seamlessly embed with your team on-site, bringing our enterprise expertise right to your office. It's the best of both worlds: global talent pool, local presence."
+                },
+                {
                   question: "How does your fixed pricing work?",
                   answer: "We've eliminated the uncertainty of hourly billing. After a thorough scoping session, you get a fixed price that won't change unless you change the requirements. Pay only when you're satisfied, with flexible payment plans available. Our enterprise background means we estimate accurately and deliver predictably."
                 },
@@ -501,6 +503,9 @@ export default function Home() {
               </Link>
             </Button>
           </div>
+          <p className="text-neutral-300 text-center mt-10 text-sm sm:text-base">
+            We are fully remote, but maintain physical presence in London, Hamburg, and Bangalore.
+          </p>
         </div>
       </section>
       </main>
