@@ -24,7 +24,7 @@ export default function Home() {
       <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md" role="banner">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="#" className="relative group" aria-label="Profusion - Back to homepage">
-            <span className="relative inline-block font-black text-3xl tracking-tighter text-primary">
+            <span className="relative inline-block font-black text-3xl tracking-tighter bg-gradient-to-r from-primary via-swiss-red to-primary bg-clip-text text-transparent animate-text-gradient">
               Profusion
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-swiss-red transition-all duration-200 ease-out group-hover:w-full" 
                     aria-hidden="true" />
@@ -96,7 +96,7 @@ export default function Home() {
         >
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <p className="text-sm font-semibold tracking-wider uppercase text-swiss-red">Services</p>
+              <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">Services</p>
               <h2 id="services-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our Expertise, Your Edge</h2>
               <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
                 Fixed prices. No surprises. Payment plans available.
@@ -168,7 +168,7 @@ export default function Home() {
         >
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <p className="text-sm font-semibold tracking-wider uppercase text-swiss-red">Case Studies</p>
+              <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">Case Studies</p>
               <h2 id="case-studies-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Real Results, Real Impact</h2>
               <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
                 Enterprise-grade solutions that deliver measurable ROI
@@ -254,7 +254,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold tracking-wider uppercase text-swiss-red">About Us</p>
+            <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">About Us</p>
             <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our DNA</h2>
             <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
               Where Enterprise Rigor Meets Startup Hustle
@@ -328,12 +328,12 @@ export default function Home() {
                 <p className="card-description text-neutral-400">{trait.description}</p>
                 <ul className="space-y-3 text-sm">
                   {trait.items.map((item, i) => (
-                    <li key={i} className="flex items-start">
+                      <li key={i} className="flex items-start">
                       <Check className="h-5 w-5 mr-2 flex-shrink-0 text-swiss-red" />
                       <span className="text-neutral-300">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                      </li>
+                    ))}
+                  </ul>
               </div>
             ))}
           </div>
@@ -348,7 +348,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold tracking-wider uppercase text-swiss-red">FAQ</p>
+            <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">FAQ</p>
             <h2 id="faq-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Common Questions</h2>
             <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
               Everything you need to know about working with us
@@ -429,7 +429,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold tracking-wider uppercase text-swiss-red">Contact</p>
+            <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">Contact</p>
             <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Let's Get Started</h2>
             <p className="text-lg sm:text-m font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
               No pressure, no obligation—just actionable insights you can implement immediately.
@@ -463,7 +463,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <div className="text-center sm:text-left">
               <Link href="#" className="link-underline group">
-                <span className="font-black text-xl text-primary">
+                <span className="font-black text-xl bg-gradient-to-r from-primary via-swiss-red to-primary bg-clip-text text-transparent animate-text-gradient">
                   Profusion
                 </span>
               </Link>
