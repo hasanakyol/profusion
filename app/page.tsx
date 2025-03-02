@@ -89,7 +89,8 @@ export default function Home() {
                 <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">Fixed Pricing.</span>
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto">
-                Audit, Design, Development, and Operations by ex-UBS, HSBC, Aviva and Top-10 agency subject matter experts for your small/medium enterprise.
+              Enterprise-Grade Audit, Design, Development & Operations for SMEs — Delivered by Experts from ex-UBS, HSBC & Aviva.
+
               </p>
               <div className="px-4 sm:px-0">
                 <Button className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-6 sm:px-10 py-2.5 sm:py-5 text-base sm:text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 w-full sm:w-auto">
