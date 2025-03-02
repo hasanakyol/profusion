@@ -37,7 +37,7 @@ export default function Home() {
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="#" className="relative group" aria-label="Profusion - Back to homepage">
             <span className="relative inline-block font-black text-3xl tracking-tighter bg-gradient-to-r from-primary via-swiss-red to-primary bg-clip-text text-transparent animate-text-gradient">
-              Profusion
+              Profusion.
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-swiss-red transition-all duration-200 ease-out group-hover:w-full" 
                     aria-hidden="true" />
             </span>
@@ -476,7 +476,7 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <Link href="#" className="link-underline group">
                 <span className="font-black text-xl bg-gradient-to-r from-primary via-swiss-red to-primary bg-clip-text text-transparent animate-text-gradient">
-                  Profusion
+                  Profusion.
                 </span>
               </Link>
               <p className="text-sm text-neutral-700 mt-2">© 2025 Profusion. All rights reserved.</p>
