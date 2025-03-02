@@ -82,9 +82,9 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8">
               <h1 id="hero-title" className="space-y-1 sm:space-y-2 md:space-y-3">
-                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">Enterprise Expertise.</span>
-                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-swiss-red">Startup Speed.</span>
-                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">Fixed Pricing.</span>
+                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">Enterprise Expertise.</span>
+                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-swiss-red">Startup Speed.</span>
+                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">Fixed Pricing.</span>
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto">
               Enterprise-Grade Audit, Design, Development & Operations for SMEs — Delivered by Experts from ex-UBS, HSBC & Aviva.
