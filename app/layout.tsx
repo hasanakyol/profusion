@@ -73,8 +73,17 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: 'black-translucent',
     title: 'Profusion',
+    startupImage: [
+      {
+        url: '/splash.png',
+        media: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)',
+      }
+    ]
   },
-  themeColor: 'transparent',
+  themeColor: {
+    media: '(prefers-color-scheme: light)',
+    color: 'transparent'
+  },
   colorScheme: 'light',
 }
 
@@ -86,12 +95,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="theme-color" content="transparent" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="transparent" media="(prefers-color-scheme: dark)" />
       </head>
-      <body className="min-h-screen bg-white pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
-        {children}
+      <body className="min-h-screen bg-white">
+        <div className="min-h-screen flex flex-col pb-safe pt-safe pl-safe pr-safe">
+          {children}
+        </div>
       </body>
     </html>
   )
