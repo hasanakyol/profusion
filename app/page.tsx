@@ -76,7 +76,7 @@ export default function Home() {
       <main id="main-content" role="main">
         {/* Hero - White Background */}
         <section 
-          className="pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-40 bg-white text-neutral-900" 
+          className="pt-24 sm:pt-32 md:pt-40 pb-16 sm:pb-21 md:pb-27 bg-white text-neutral-900" 
           aria-labelledby="hero-title"
         >
           <div className={spacing.container}>
