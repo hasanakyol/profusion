@@ -4,7 +4,6 @@
 
 @layer base {
   :root {
-    --swiss-red: 0 100% 50%;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
 
@@ -96,7 +95,7 @@
 
   /* Section Headers */
   .section-overline {
-    @apply text-sm font-bold tracking-widest text-swiss-red uppercase mb-4 text-center;
+    @apply text-sm font-bold tracking-widest text-red-700 uppercase mb-4 text-center;
   }
 
   .section-title {
@@ -150,7 +149,7 @@
 
   /* Focus styles */
   *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-swiss-red ring-2 ring-swiss-red ring-offset-2 ring-offset-white rounded-sm;
+    @apply outline-2 outline-offset-2 outline-red-700 ring-2 ring-red-700 ring-offset-2 ring-offset-white rounded-sm;
   }
 
   .dark *:focus-visible {
@@ -314,11 +313,11 @@
 
 /* Button Variants */
 .button-primary {
-  @apply bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-8 py-6 text-lg font-medium hover-scale hover:shadow-lg;
+  @apply bg-red-700 text-white hover:bg-white hover:text-red-700 rounded-full px-8 py-6 text-lg font-medium hover-scale hover:shadow-lg;
 }
 
 .button-small {
-  @apply bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-6 py-2 text-sm font-medium hover-scale-small;
+  @apply bg-red-700 text-white hover:bg-white hover:text-red-700 rounded-full px-6 py-2 text-sm font-medium hover-scale-small;
 }
 
 /* Card Variants */
@@ -343,7 +342,6 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: hsl(var(--swiss-red));
   transition: width 0.2s ease-out;
 }
 
