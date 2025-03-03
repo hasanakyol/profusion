@@ -344,7 +344,7 @@ export default function Home() {
         >
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <p className="text-base font-bold tracking-wider uppercase text-red-500">FAQ</p>
+              <p className="text-base font-bold tracking-wider uppercase text-red-700">FAQ</p>
               <h2 id="faq-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Your Questions, Our Answers</h2>
               <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
                 What you need to know about working with us.
