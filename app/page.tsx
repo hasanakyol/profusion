@@ -10,22 +10,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import JsonLd from './components/JsonLd'
-import Head from 'next/head'
 
 export default function Home() {
   return (
     <div className="min-h-screen font-sans">
-      <Head>
-        {/* iOS status bar style */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        
-        {/* Android status bar color - using our neutral-900 color */}
-        <meta name="theme-color" content="#171717" />
-        
-        {/* PWA color scheme */}
-        <meta name="color-scheme" content="light" />
-      </Head>
       <JsonLd />
       {/* Skip to main content link */}
       <a href="#main-content" className="skip-to-content">
@@ -133,7 +121,7 @@ export default function Home() {
               },
               {
                 title: "Design",
-                price: "Starting at £5,000",
+                price: "Starting at £7,500",
                 description:
                   "Convert visitors into customers with precision. Corporate-grade creativity, inspired by Aviva and UBS's brand playbooks.",
                 items: [
@@ -143,22 +131,22 @@ export default function Home() {
               },
               {
                 title: "Development",
-                price: "Starting at £7,500",
+                price: "Starting at £10,000",
                 description:
                   "Enterprise-grade solutions that scale seamlessly. Code that lasts and evolves, built by senior developers with proven enterprise rigor.",
                 items: [
-                  "£7,500: Secure, fast web site (2-week delivery).",
-                  "15,000: Custom web or mobile app as a minimal viable product (MVP).",
+                  "£10,000: Secure, fast web site (2-week delivery).",
+                  "£20,000: Custom web or mobile app as a minimal viable product (MVP).",
                 ],
               },
               {
                 title: "Operations",
-                price: "Starting at £3,000",
+                price: "Starting at £5,000",
                 description:
                   "Optimize your business operations with our tailored support. We streamline day-to-day activities, eliminating bottlenecks and freeing you to focus on growth, using proven strategies from enterprise playbooks.",
                 items: [
-                  "£3,000: Operational assessment and core support package (e.g., workflow optimization, task automation).",
-                  "£6,000: Comprehensive operations overhaul (e.g., end-to-end process reengineering, staff training, real-time performance monitoring).",
+                  "£5,000: Operational assessment and core support package (e.g., workflow optimization, task automation).",
+                  "£10,000: Comprehensive operations overhaul (e.g., end-to-end process reengineering, staff training, real-time performance monitoring).",
                 ],
               },
               {
@@ -304,6 +292,7 @@ export default function Home() {
             <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our DNA</h2>
             <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
               Where Enterprise Rigor Meets Startup Hustle.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">

@@ -9,9 +9,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://profusion.io'),
-  title: "Profusion - Enterprise Expertise at Startup Speed",
-  description: "Design, Development, and Operations by ex-UBS, HSBC, and Shell leads. Enterprise-grade solutions at startup speed with fixed pricing.",
+  title: 'Profusion - Enterprise Expertise, Startup Speed',
+  description: 'Enterprise-Grade Audit, Design, Development & Operations for SMEs — Delivered by Experts from ex-UBS, HSBC & Aviva.',
   keywords: ["enterprise development", "startup speed", "fixed pricing", "UBS", "HSBC", "Shell", "tech consulting", "software development", "digital transformation"],
   authors: [{ name: "Profusion" }],
   creator: "Profusion",
@@ -72,18 +71,8 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Profusion',
-    startupImage: [
-      {
-        url: '/splash.png',
-        media: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)',
-      }
-    ]
   },
-  themeColor: {
-    media: '(prefers-color-scheme: light)',
-    color: 'transparent'
-  },
+  themeColor: '#171717',
   colorScheme: 'light',
 }
 
