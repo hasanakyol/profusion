@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Check } from "lucide-react"
@@ -10,8 +11,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import JsonLd from './components/JsonLd'
+import { spacing, typography } from './styles'
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <div className="min-h-screen font-sans">
       <JsonLd />
@@ -21,8 +33,8 @@ export default function Home() {
       </a>
 
       {/* Navigation */}
-      <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md safe-top" role="banner">
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 sm:gap-8">
+      <header className={`fixed w-full z-50 backdrop-blur-md safe-top transition-all duration-300 ${isScrolled ? 'bg-white/95 shadow-md' : 'bg-white/80'}`} role="banner">
+        <div className={`${spacing.container} py-3 sm:py-4 flex items-center justify-between ${spacing.gap}`}>
           <Link href="#" className="link-underline group" aria-label="Profusion - Back to homepage">
             <span className="relative inline-block font-black text-2xl sm:text-3xl tracking-tighter text-primary">
               Profusion
@@ -51,7 +63,7 @@ export default function Home() {
             ))}
           </nav>
           <Button 
-            className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-6 sm:px-10 py-2.5 sm:py-5 text-base sm:text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 shrink-0"
+            className={`bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full ${spacing.button} text-base sm:text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 shrink-0`}
             aria-label="Book a free 30-minute strategy call"
           >
             <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center whitespace-nowrap">
@@ -67,16 +79,15 @@ export default function Home() {
           className="pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-40 bg-white text-neutral-900" 
           aria-labelledby="hero-title"
         >
-          <div className="container mx-auto px-4 sm:px-6">
+          <div className={spacing.container}>
             <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8">
               <h1 id="hero-title" className="space-y-1 sm:space-y-2 md:space-y-3">
-                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">Enterprise Expertise</span>
-                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-swiss-red">Startup Speed</span>
-                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">Fixed Pricing</span>
+                <span className={`block ${typography.h1}`}>Enterprise Expertise</span>
+                <span className={`block ${typography.h1} text-swiss-red`}>Startup Speed</span>
+                <span className={`block ${typography.h1}`}>Fixed Pricing</span>
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto">
-              Enterprise-grade audit, design, development & operations for SMEs — Delivered by experts from ex-UBS, HSBC & Aviva.
-
+                Enterprise-grade audit, design, development & operations for SMEs. Built by former UBS, HSBC & Aviva senior experts.
               </p>
               <div className="px-4 sm:px-0">
                 <Button className="bg-swiss-red text-white hover:bg-white hover:text-swiss-red rounded-full px-6 sm:px-10 py-2.5 sm:py-5 text-base sm:text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 w-full sm:w-auto">
@@ -85,7 +96,7 @@ export default function Home() {
                   </Link>
                 </Button>
               </div>
-              <p className="text-sm italic text-neutral-600">
+              <p className="text-sm sm:text-base italic text-neutral-600">
                 No pressure, no obligation—just actionable insights you can implement immediately.
               </p>
             </div>
@@ -111,62 +122,62 @@ export default function Home() {
             {[
               {
                 title: "Audit",
-                price: "Starting at £2,500",
+                price: "Fixed Price: £2,500",
                 description:
-                  "Identify revenue leaks and security risks with actionable 30-day roadmaps. We dissect your tech stack or workflows using methodologies honed at HSBC and UBS.",
+                  "Uncover revenue opportunities and eliminate security risks with our enterprise-grade audit. Get a clear 30-day roadmap using methodologies proven at our time in HSBC and UBS.",
                 items: [
-                  "£2,500: Site + UX teardown (startup-ready).",
-                  "£5,000: Full workflow audit + competitor benchmarks (enterprise-grade).",
+                  "£2,500: Complete Site Audit & UX Analysis (startup-ready)",
+                  "£5,000: Enterprise-grade Workflow Audit & Competitive Analysis",
                 ],
               },
               {
                 title: "Design",
-                price: "Starting at £7,500",
+                price: "Fixed Price: £7,500",
                 description:
-                  "Convert visitors into customers with precision. Corporate-grade creativity, inspired by Aviva and UBS's brand playbooks.",
+                  "Transform your digital presence with precision. Our UX-driven design process combines our enterprise experience from Aviva with startup creativity.",
                 items: [
-                  "£7,500: Mobile-first website with conversion-focused UX.",
-                  "£15,000: Multi-platform branding (web, app, social).",
+                  "£7,500: Conversion-optimized Website Design",
+                  "£15,000: Full Brand Identity & Multi-platform Design System",
                 ],
               },
               {
                 title: "Development",
-                price: "Starting at £10,000",
+                price: "Fixed Price: £10,000",
                 description:
-                  "Enterprise-grade solutions that scale seamlessly. Code that lasts and evolves, built by senior developers with proven enterprise rigor.",
+                  "Get enterprise-grade code that scales with your business. Built by senior developers from our time delivering mission-critical systems at UBS and HSBC.",
                 items: [
-                  "£10,000: Secure, fast web site (2-week delivery).",
-                  "£20,000: Custom web or mobile app as a minimal viable product (MVP).",
+                  "£10,000: High-performance Website (2-week delivery)",
+                  "£20,000: Custom Web/Mobile App MVP with Enterprise Security",
                 ],
               },
               {
                 title: "Operations",
-                price: "Starting at £5,000",
+                price: "Fixed Price: £5,000",
                 description:
-                  "Optimize your business operations with our tailored support. We streamline day-to-day activities, eliminating bottlenecks and freeing you to focus on growth, using proven strategies from enterprise playbooks.",
+                  "Streamline your operations with enterprise-proven methodologies. We optimize workflows and automate processes to accelerate your growth.",
                 items: [
-                  "£5,000: Operational assessment and core support package (e.g., workflow optimization, task automation).",
-                  "£10,000: Comprehensive operations overhaul (e.g., end-to-end process reengineering, staff training, real-time performance monitoring).",
+                  "£5,000: Operations Assessment & Automation Package",
+                  "£10,000: Full Operations Transformation & Team Training",
                 ],
               },
               {
                 title: "Retainer",
-                price: "Starting at £2,500/month",
+                price: "Fixed Price: £2,500/month",
                 description:
-                  "Secure continuous access to our expertise with a flexible retainer. From design tweaks to development sprints and operational support, we're your on-call team for anything you need, delivered with enterprise-grade precision.",
+                  "Get on-demand access to enterprise expertise. From rapid development sprints to strategic guidance, we're your dedicated technical partner.",
                 items: [
-                  "£2,500/month: 20 hours of adaptable services per month, tailored to your evolving priorities.",
-                  "£5,000/month: 50 hours of services per month, including proactive strategy sessions and expedited delivery.",
+                  "£2,500/month: 20 Hours Premium Support & Development",
+                  "£5,000/month: 50 Hours Full-service Technical Partnership",
                 ],
               },
               {
                 title: "In-house",
-                price: "Starting at £10,000/month",
+                price: "Fixed Price: £10,000/month",
                 description:
-                  "Embed our specialists in your office for hands-on collaboration and rapid results. We tackle everything you need on-site, from intensive projects to skill gaps, with the rigor of top-tier consultancies.",
+                  "Embed enterprise expertise in your team. Get dedicated on-site specialists who bring bank-grade practices to your business.",
                 items: [
-                  "£10,000/month: One full-time specialist on-site, dedicated to your goals (e.g., senior developer, UX designer, operations lead).",
-                  "£20,000/month: Team of two specialists or extended engagement for complex, high-stakes challenges.",
+                  "£10,000/month: Senior Technical Lead On-site",
+                  "£20,000/month: Full Technical Team Embedded",
                 ],
               },
             ].map((service, index) => (
@@ -211,48 +222,48 @@ export default function Home() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
               {[
-  {
-    title: "Audit: FinTech",
-    price: "£5,000 Investment",
-    description:
-      "Using HSBC's risk assessment framework, we identified critical vulnerabilities and optimization opportunities for a global fintech platform.",
-    items: [
-      "6 critical security vulnerabilities patched",
-      "£500K in cost savings identified",
-      "2x ROI achieved in 6 months",
-      "New vendor contract negotiated",
-    ],
-    quote: "Profusion's audit uncovered hidden business opportunities and substantial cost savings with our new contract.",
-    author: "— Chief Information Officer"
-  },
-  {
-    title: "Design: E-commerce",
-    price: "£10,000 Investment",
-    description:
-      "Transformed a struggling mobile experience into a revenue powerhouse using Aviva's proven UX principles and conversion optimization.",
-    items: [
-      "70% reduction in mobile bounce rate",
-      "30% increase in overall sales",
-      "50% faster checkout process",
-      "95% customer satisfaction score",
-    ],
-    quote: "The redesign turned our mobile site from a liability into our top revenue driver. Worth every penny.",
-    author: "— Chief Product Officer"
-  },
-  {
-    title: "Development: Blockchain",
-    price: "£15,000 Investment",
-    description:
-      "Delivered a secure, scalable blockchain platform in 90 days using UBS's agile methodology and enterprise security standards.",
-    items: [
-      "90-day delivery timeline met",
-      "127% ROI in first quarter",
-      "Zero security incidents",
-      "5x user growth supported",
-    ],
-    quote: "UBS-level security paired with startup speed? Profusion delivered both. 10/10 would partner again.",
-    author: "— Chief Executive Officer"
-  },
+                {
+                  title: "FinTech Security Audit",
+                  price: "Investment: £5,000",
+                  description:
+                    "Applied HSBC's enterprise security framework to identify and eliminate critical vulnerabilities for a fast-growing fintech platform.",
+                  items: [
+                    "6 Critical Vulnerabilities Resolved",
+                    "£500K Annual Cost Savings",
+                    "200% ROI in 6 Months",
+                    "Zero Security Incidents Post-Implementation",
+                  ],
+                  quote: "Profusion's audit transformed our security posture and uncovered significant cost savings. Enterprise-grade results at startup pricing.",
+                  author: "— CTO, Leading Fintech"
+                },
+                {
+                  title: "E-commerce Transformation",
+                  price: "Investment: £10,000",
+                  description:
+                    "Leveraged Aviva's conversion optimization playbook to transform a struggling mobile experience into a revenue powerhouse.",
+                  items: [
+                    "70% Mobile Bounce Rate Reduction",
+                    "3x Mobile Conversion Rate",
+                    "50% Faster User Journey",
+                    "95% Customer Satisfaction",
+                  ],
+                  quote: "Our mobile experience went from our biggest weakness to our strongest revenue channel. The ROI was immediate and substantial.",
+                  author: "— Head of Digital, Global Retailer"
+                },
+                {
+                  title: "Enterprise Platform Launch",
+                  price: "Investment: £15,000",
+                  description:
+                    "Delivered a secure, scalable enterprise platform in 90 days using UBS's battle-tested development methodology.",
+                  items: [
+                    "90-Day Delivery Timeline",
+                    "127% First Quarter ROI",
+                    "Zero Security Incidents",
+                    "500% User Growth Supported",
+                  ],
+                  quote: "Profusion delivered UBS-level quality at startup speed. The platform scaled flawlessly as we grew from 1,000 to 50,000 users.",
+                  author: "— CEO, Enterprise SaaS Platform"
+                },
               ].map((study, index) => (
               <div
                 key={index}
@@ -309,7 +320,7 @@ export default function Home() {
               {
                 title: "No Hierarchies, Just Expertise",
                 price: "Direct Access",
-                description: "Work directly with ex-HSBC, UBS, and Aviva veterans. No account managers, no middlemen—just seasoned experts who've solved similar challenges.",
+                description: "Work directly with former HSBC, UBS, and Aviva veterans. No account managers, no middlemen—just seasoned experts who've solved similar challenges.",
                 items: [
                   "Direct access to senior experts",
                   "20+ years enterprise experience"

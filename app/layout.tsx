@@ -9,9 +9,25 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Profusion - Enterprise Expertise, Startup Speed',
-  description: 'Enterprise-Grade Audit, Design, Development & Operations for SMEs — Delivered by Experts from ex-UBS, HSBC & Aviva.',
-  keywords: ["enterprise development", "startup speed", "fixed pricing", "UBS", "HSBC", "Shell", "tech consulting", "software development", "digital transformation"],
+  title: 'Profusion - Enterprise-grade Solutions at Startup Speed',
+  description: 'Enterprise-grade audit, design, development, and operations delivered by senior experts from UBS, HSBC, and Aviva. Fixed pricing, rapid delivery, proven results.',
+  keywords: [
+    "enterprise solutions",
+    "startup speed",
+    "fixed pricing",
+    "UBS experts",
+    "HSBC veterans",
+    "Aviva experience",
+    "tech consulting",
+    "software development",
+    "digital transformation",
+    "enterprise security",
+    "rapid delivery",
+    "senior developers",
+    "enterprise architecture",
+    "tech audit",
+    "business operations"
+  ],
   authors: [{ name: "Profusion" }],
   creator: "Profusion",
   publisher: "Profusion",
@@ -43,21 +59,21 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://profusion.io",
     siteName: "Profusion",
-    title: "Profusion - Enterprise Expertise at Startup Speed",
-    description: "Design, Development, and Operations by ex-UBS, HSBC, and Shell leads. Enterprise-grade solutions at startup speed with fixed pricing.",
+    title: "Profusion - Enterprise-grade Solutions at Startup Speed",
+    description: "Enterprise-grade solutions by senior experts from UBS, HSBC, and Aviva. Fixed pricing, rapid delivery, bank-level quality.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Profusion - Enterprise Expertise at Startup Speed",
+        alt: "Profusion - Enterprise-grade Solutions at Startup Speed",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Profusion - Enterprise Expertise at Startup Speed",
-    description: "Design, Development, and Operations by ex-UBS, HSBC, and Shell leads. Enterprise-grade solutions at startup speed with fixed pricing.",
+    title: "Profusion - Enterprise-grade Solutions at Startup Speed",
+    description: "Enterprise-grade solutions by senior experts from UBS, HSBC, and Aviva. Fixed pricing, rapid delivery, bank-level quality.",
     images: ["/twitter-image.jpg"],
     creator: "@profusion",
   },
@@ -74,6 +90,25 @@ export const metadata: Metadata = {
   },
   themeColor: '#171717',
   colorScheme: 'light',
+}
+
+// Consistent spacing system
+export const spacing = {
+  section: "pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16",
+  container: "container mx-auto px-4 sm:px-6 lg:px-8",
+  card: "p-6 sm:p-8 rounded-2xl transition-all duration-300",
+  button: "px-6 sm:px-10 py-2.5 sm:py-5",
+  gap: "gap-4 sm:gap-6 lg:gap-8"
+}
+
+// Typography scale
+export const typography = {
+  h1: "text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight",
+  h2: "text-3xl sm:text-4xl font-extrabold tracking-tight",
+  h3: "text-xl sm:text-2xl font-bold tracking-tight",
+  body: "text-base sm:text-lg leading-relaxed",
+  small: "text-sm sm:text-base",
+  caption: "text-sm italic"
 }
 
 export default function RootLayout({
