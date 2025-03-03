@@ -64,7 +64,7 @@ export default function Home() {
       <main id="main-content" role="main">
         {/* Hero - White Background */}
         <section 
-          className="pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-24 bg-white text-neutral-900" 
+          className="pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-40 bg-white text-neutral-900" 
           aria-labelledby="hero-title"
         >
           <div className="container mx-auto px-4 sm:px-6">
@@ -75,7 +75,7 @@ export default function Home() {
                 <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">Fixed Pricing</span>
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto">
-              Enterprise-Grade Audit, Design, Development & Operations for SMEs — Delivered by Experts from ex-UBS, HSBC & Aviva.
+              Enterprise-grade audit, design, development & operations for SMEs — Delivered by experts from ex-UBS, HSBC & Aviva.
 
               </p>
               <div className="px-4 sm:px-0">
@@ -95,7 +95,7 @@ export default function Home() {
         {/* Services - Black Background */}
         <section 
           id="services" 
-          className="py-16 sm:py-20 md:py-32 bg-neutral-900 text-white"
+          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
           aria-labelledby="services-title"
         >
           <div className="container mx-auto px-4 sm:px-6">
@@ -125,8 +125,8 @@ export default function Home() {
                 description:
                   "Convert visitors into customers with precision. Corporate-grade creativity, inspired by Aviva and UBS's brand playbooks.",
                 items: [
-                  "£5,000: Mobile-first website with conversion-focused UX.",
-                  "£10,000: Multi-platform branding (web, app, social).",
+                  "£7,500: Mobile-first website with conversion-focused UX.",
+                  "£15,000: Multi-platform branding (web, app, social).",
                 ],
               },
               {
@@ -197,7 +197,7 @@ export default function Home() {
         {/* Case Studies - White Background */}
         <section 
           id="case-studies" 
-          className="py-20 md:py-32 bg-white text-neutral-900"
+          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-white text-neutral-900"
           aria-labelledby="case-studies-title"
         >
           <div className="container mx-auto px-6">
@@ -283,7 +283,7 @@ export default function Home() {
       {/* Our DNA - Black Background */}
       <section 
         id="about-us" 
-        className="py-20 md:py-32 bg-neutral-900 text-white"
+        className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
         aria-labelledby="dna-title"
       >
         <div className="container mx-auto px-6">
@@ -377,7 +377,7 @@ export default function Home() {
       {/* FAQ Section - White Background */}
       <section 
         id="faq" 
-        className="py-20 md:py-32 bg-white text-neutral-900"
+        className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-white text-neutral-900"
         aria-labelledby="faq-title"
       >
         <div className="container mx-auto px-6">
@@ -462,14 +462,14 @@ export default function Home() {
         {/* Contact - Black Background */}
       <section 
         id="contact" 
-        className="py-20 md:py-32 bg-neutral-900 text-white"
+        className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
         aria-labelledby="contact-title"
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-sm font-bold tracking-wider uppercase text-swiss-red">Contact</p>
             <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Let's Get Started</h2>
-            <p className="text-lg sm:text-m font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-md font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
               No pressure, no obligation—just actionable insights you can implement immediately.
             </p>
           </div>
