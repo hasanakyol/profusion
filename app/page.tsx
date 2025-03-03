@@ -122,62 +122,62 @@ export default function Home() {
             {[
               {
                 title: "Audit",
-                price: "Fixed Price: £2,500",
+                price: "Starting at: £2,500",
                 description:
-                  "Uncover revenue opportunities and eliminate security risks with our enterprise-grade audit. Get a clear 30-day roadmap using methodologies proven at our time in HSBC and UBS.",
+                  "Get a clear 30-day roadmap to unlock revenue and eliminate risks. Built on proven methodologies from HSBC and UBS to deliver immediate ROI.",
                 items: [
-                  "£2,500: Complete Site Audit & UX Analysis (startup-ready)",
-                  "£5,000: Enterprise-grade Workflow Audit & Competitive Analysis",
+                  "£2,500: Complete Site Audit & UX Analysis",
+                  "£5,000: Enterprise-grade Audit & Research",
                 ],
               },
               {
                 title: "Design",
-                price: "Fixed Price: £7,500",
+                price: "Starting at: £7,500",
                 description:
-                  "Transform your digital presence with precision. Our UX-driven design process combines our enterprise experience from Aviva with startup creativity.",
+                  "Convert more customers with UX-driven design that scales. Combining Aviva's enterprise precision with startup-focused conversion optimization.",
                 items: [
                   "£7,500: Conversion-optimized Website Design",
-                  "£15,000: Full Brand Identity & Multi-platform Design System",
+                  "£15,000: Multi-platform Design System & Branding",
                 ],
               },
               {
                 title: "Development",
-                price: "Fixed Price: £10,000",
+                price: "Starting at: £10,000",
                 description:
-                  "Get enterprise-grade code that scales with your business. Built by senior developers from our time delivering mission-critical systems at UBS and HSBC.",
+                  "Enterprise-grade code delivered at startup speed. Built by senior UBS and HSBC developers for performance, security, and scalability.",
                 items: [
-                  "£10,000: High-performance Website (2-week delivery)",
-                  "£20,000: Custom Web/Mobile App MVP with Enterprise Security",
+                  "£10,000: High-performance Website",
+                  "£20,000: Custom Web/Mobile App MVP",
                 ],
               },
               {
                 title: "Operations",
-                price: "Fixed Price: £5,000",
+                price: "Starting at: £5,000",
                 description:
-                  "Streamline your operations with enterprise-proven methodologies. We optimize workflows and automate processes to accelerate your growth.",
+                  "Streamline workflows and automate processes that scale. Enterprise-proven systems to accelerate growth while reducing operational costs.",
                 items: [
-                  "£5,000: Operations Assessment & Automation Package",
-                  "£10,000: Full Operations Transformation & Team Training",
+                  "£5,000: Operations & Workflow Automation",
+                  "£10,000: Full Operations Transformation",
                 ],
               },
               {
                 title: "Retainer",
-                price: "Fixed Price: £2,500/month",
+                price: "Starting at: £2,500/month",
                 description:
-                  "Get on-demand access to enterprise expertise. From rapid development sprints to strategic guidance, we're your dedicated technical partner.",
+                  "On-demand access to senior technical expertise. From rapid development sprints to strategic guidance, we're your dedicated partner.",
                 items: [
-                  "£2,500/month: 20 Hours Premium Support & Development",
-                  "£5,000/month: 50 Hours Full-service Technical Partnership",
+                  "£2,500/month: 20 Hours Dedicated Support",
+                  "£5,000/month: 50 Hours Dedicated Support",
                 ],
               },
               {
                 title: "In-house",
-                price: "Fixed Price: £10,000/month",
+                price: "Starting at: £10,000/month",
                 description:
-                  "Embed enterprise expertise in your team. Get dedicated on-site specialists who bring bank-grade practices to your business.",
+                  "Embed enterprise expertise within your team. Get dedicated specialists who bring bank-grade practices to accelerate your success.",
                 items: [
-                  "£10,000/month: Senior Technical Lead On-site",
-                  "£20,000/month: Full Technical Team Embedded",
+                  "£10,000/month: One Senior Lead On-site",
+                  "£20,000/month: Two Senior Lead On-site",
                 ],
               },
             ].map((service, index) => (
