@@ -165,9 +165,9 @@ export default function Home() {
           aria-labelledby="services-title"
         >
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-12 sm:mb-16">
-              <p className="text-sm font-bold tracking-wider uppercase text-red-400">Services</p>
-              <h2 id="services-title" className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-2">Our Expertise, Your Edge</h2>
+            <div className="text-center mb-12">
+              <p className="text-base font-bold tracking-wider uppercase text-red-500">Services</p>
+              <h2 id="services-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our Expertise, Your Edge</h2>
               <p className="text-base sm:text-lg md:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto px-4">
                 Fixed prices. No surprises. Payment plans available.
               </p>
@@ -206,8 +206,8 @@ export default function Home() {
           aria-labelledby="case-studies-title"
         >
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <p className="text-sm font-bold tracking-wider uppercase text-red-700">Case Studies</p>
+            <div className="text-center mb-12">
+              <p className="text-base font-bold tracking-wider uppercase text-red-700">Case Studies</p>
               <h2 id="case-studies-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Real Results, Real Impact</h2>
               <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
                 Enterprise-grade solutions that deliver measurable ROI.
@@ -249,9 +249,9 @@ export default function Home() {
           aria-labelledby="dna-title"
         >
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <p className="text-sm font-bold tracking-wider uppercase text-red-400">About Us</p>
-              <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our DNA</h2>
+            <div className="text-center mb-12">
+              <p className="text-base font-bold tracking-wider uppercase text-red-500">About Us</p>
+              <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Enterprise DNA, Startup Spirit</h2>
               <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
                 Where Enterprise Rigor Meets Startup Hustle.
               </p>
@@ -343,11 +343,11 @@ export default function Home() {
           aria-labelledby="faq-title"
         >
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <p className="text-sm font-bold tracking-wider uppercase text-red-700">FAQ</p>
-              <h2 id="faq-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Common Questions</h2>
+            <div className="text-center mb-12">
+              <p className="text-base font-bold tracking-wider uppercase text-red-500">FAQ</p>
+              <h2 id="faq-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Your Questions, Our Answers</h2>
               <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
-                Everything you need to know about working with us.
+                What you need to know about working with us.
               </p>
             </div>
 
@@ -379,10 +379,10 @@ export default function Home() {
           aria-labelledby="contact-title"
         >
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <p className="text-sm font-bold tracking-wider uppercase text-red-400">Contact</p>
-              <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Let's Get Started</h2>
-              <p className="text-lg sm:text-md font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-base font-bold tracking-wider uppercase text-red-500">Contact</p>
+              <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Ready, Steady, Go!</h2>
+              <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
                 No pressure, no obligation—just actionable insights you can implement immediately.
               </p>
             </div>
@@ -404,8 +404,8 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-            <p className="text-neutral-300 text-center mt-10 text-sm sm:text-base">
-              We are fully remote, but maintain physical presence in London, Hamburg, and Bangalore.
+            <p className="text-neutral-300 text-center mt-10 text-sm sm:text-base italic">
+              We are fully remote, but maintain physical presence in London, Hamburg, Krakow, Istanbul, and Bangalore.
             </p>
           </div>
         </section>

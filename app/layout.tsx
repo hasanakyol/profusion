@@ -10,8 +10,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://profusion.io'),
-  title: 'Profusion - Enterprise-grade Solutions at Startup Speed',
-  description: 'Enterprise-grade audit, design, development, and operations delivered by senior experts from UBS, HSBC, and Aviva. Fixed pricing, rapid delivery, proven results.',
+  title: 'Profusion - Enterprise Expertise at Startup Speed',
+  description: 'Enterprise-grade audit, design, development & operations for SMEs. Built by former UBS, HSBC & Aviva senior experts.',
   keywords: [
     "enterprise solutions",
     "startup speed",
@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   openGraph: {
@@ -54,29 +57,36 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://profusion.io",
     siteName: "Profusion",
-    title: "Profusion - Enterprise-grade Solutions at Startup Speed",
-    description: "Enterprise-grade solutions by senior experts from UBS, HSBC, and Aviva. Fixed pricing, rapid delivery, bank-level quality.",
+    title: "Profusion - Enterprise Expertise at Startup Speed",
+    description: "Enterprise-grade audit, design, development & operations for SMEs. Built by former UBS, HSBC & Aviva senior experts.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Profusion - Enterprise-grade Solutions at Startup Speed",
+        alt: "Profusion - Enterprise Expertise at Startup Speed",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Profusion - Enterprise-grade Solutions at Startup Speed",
-    description: "Enterprise-grade solutions by senior experts from UBS, HSBC, and Aviva. Fixed pricing, rapid delivery, bank-level quality.",
-    images: ["/twitter-image.jpg"],
-    creator: "@profusion",
+    title: "Profusion - Enterprise Expertise at Startup Speed",
+    description: "Enterprise-grade audit, design, development & operations for SMEs. Built by former UBS, HSBC & Aviva senior experts.",
+    images: [
+      {
+        url: "/og-twitter-image.jpg",
+        width: 1200,
+        height: 600,
+        alt: "Profusion - Enterprise Expertise at Startup Speed",
+      }
+    ],
+    creator: "@imoffactually",
   },
   alternates: {
     canonical: "https://profusion.io",
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "add-your-google-site-verification-here",
   },
   category: "technology",
   appleWebApp: {
