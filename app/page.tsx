@@ -1,31 +1,67 @@
 'use client'
 
-import dynamic from 'next/dynamic'
+import { spacing, typography } from './styles'
+import { faqData } from './data/faq'
+import { servicesData } from './data/services'
+import { caseStudiesData } from './data/case-studies'
 import { useState, useEffect, Suspense } from 'react'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Check } from "lucide-react"
-import { faqData } from './data/faq'
+import dynamic from 'next/dynamic'
 
-// Dynamically import components that are not needed immediately
+// Dynamically import components with proper loading states
 const Accordion = dynamic(() => import("@/components/ui/accordion").then(mod => mod.Accordion), {
   ssr: false,
   loading: () => <div className="animate-pulse bg-neutral-100 h-96 rounded-lg" />
 })
-const AccordionContent = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionContent), { ssr: false })
-const AccordionItem = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionItem), { ssr: false })
-const AccordionTrigger = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionTrigger), { ssr: false })
 
+const AccordionContent = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionContent), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse h-4 bg-neutral-100" />
+})
+
+const AccordionItem = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionItem), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse h-12 bg-neutral-100 mb-2" />
+})
+
+const AccordionTrigger = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionTrigger), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse h-6 bg-neutral-100" />
+})
+
+// Lazy load JsonLd component
 const JsonLd = dynamic(() => import('./components/JsonLd'), {
   ssr: false,
   loading: () => null
 })
 
-import { spacing, typography } from './styles'
-
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
+
+  // Memoize navigation items
+  const navItems = [
+    { name: "Services", id: "services" },
+    { name: "Case Studies", id: "case-studies" },
+    { name: "About Us", id: "about-us" },
+    { name: "FAQ", id: "faq" },
+    { name: "Contact", id: "contact" }
+  ]
+
+  // Optimize scroll handler
+  useEffect(() => {
+    setMounted(true)
+    const handleScroll = () => {
+      const shouldBeScrolled = window.scrollY > 50
+      if (isScrolled !== shouldBeScrolled) {
+        setIsScrolled(shouldBeScrolled)
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isScrolled])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
@@ -41,15 +77,6 @@ export default function Home() {
       })
     }
   }
-
-  useEffect(() => {
-    setMounted(true)
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   if (!mounted) {
     return null // or return a loading skeleton
@@ -74,13 +101,7 @@ export default function Home() {
             </span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8" role="navigation" aria-label="Main navigation">
-            {[
-              { name: "Services", id: "services" },
-              { name: "Case Studies", id: "case-studies" },
-              { name: "About Us", id: "about-us" },
-              { name: "FAQ", id: "faq" },
-              { name: "Contact", id: "contact" }
-            ].map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={`#${item.id}`}
@@ -153,91 +174,30 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8" role="list">
-            {[
-              {
-                title: "Audit",
-                price: "Starting at: £2,500",
-                description:
-                  "Get a clear 30-day roadmap to unlock revenue and eliminate risks. Built on proven methodologies from HSBC and UBS to deliver immediate ROI.",
-                items: [
-                  "£2,500: Complete Site Audit & UX Analysis",
-                  "£5,000: Enterprise-grade Audit & Research",
-                ],
-              },
-              {
-                title: "Design",
-                price: "Starting at: £7,500",
-                description:
-                  "Convert more customers with UX-driven design that scales. Combining Aviva's enterprise precision with startup-focused conversion optimization.",
-                items: [
-                  "£7,500: Conversion-optimized Website Design",
-                  "£15,000: Multi-platform Design System & Branding",
-                ],
-              },
-              {
-                title: "Development",
-                price: "Starting at: £10,000",
-                description:
-                  "Enterprise-grade code delivered at startup speed. Built by senior UBS and HSBC developers for performance, security, and scalability.",
-                items: [
-                  "£10,000: High-performance Website",
-                  "£20,000: Custom Web/Mobile App MVP",
-                ],
-              },
-              {
-                title: "Operations",
-                price: "Starting at: £5,000",
-                description:
-                  "Streamline workflows and automate processes that scale. Enterprise-proven systems to accelerate growth while reducing operational costs.",
-                items: [
-                  "£5,000: Operations & Workflow Automation",
-                  "£10,000: Full Operations Transformation",
-                ],
-              },
-              {
-                title: "Retainer",
-                price: "Starting at: £2,500/month",
-                description:
-                  "On-demand access to senior technical expertise. From rapid development sprints to strategic guidance, we're your dedicated partner.",
-                items: [
-                  "£2,500/month: 20 Hours Dedicated Support",
-                  "£5,000/month: 50 Hours Dedicated Support",
-                ],
-              },
-              {
-                title: "In-house",
-                price: "Starting at: £10,000/month",
-                description:
-                  "Embed enterprise expertise within your team. Get dedicated specialists who bring bank-grade practices to accelerate your success.",
-                items: [
-                  "£10,000/month: One Senior Lead On-site",
-                  "£20,000/month: Two Senior Lead On-site",
-                ],
-              },
-            ].map((service, index) => (
-              <div
-                key={index}
-                className={`bg-neutral-800 p-6 sm:p-8 rounded-2xl hover:bg-neutral-700 transition-all duration-300 transform hover:scale-105 scale-in-child stagger-delay-${index + 1}`}
-                role="listitem"
-              >
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 tracking-tight text-white">{service.title}</h3>
-                <p className="text-base sm:text-lg font-medium mb-3 sm:mb-4 text-neutral-300">{service.price}</p>
-                <p className="text-sm sm:text-base mb-4 sm:mb-6 text-neutral-400 leading-relaxed">{service.description}</p>
-                {service.items.length > 0 && (
-                  <ul className="space-y-2 sm:space-y-3 text-sm">
-                    {service.items.map((item, i) => (
-                      <li key={i} className="flex items-center">
-                        <Check className="h-5 w-5 mr-2 flex-shrink-0 text-red-700" />
-                        <span className="text-neutral-300">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
+              {servicesData.map((service, index) => (
+                <div
+                  key={index}
+                  className={`bg-neutral-800 p-6 sm:p-8 rounded-2xl hover:bg-neutral-700 transition-all duration-300 transform hover:scale-105 scale-in-child stagger-delay-${index + 1}`}
+                  role="listitem"
+                >
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 tracking-tight text-white">{service.title}</h3>
+                  <p className="text-base sm:text-lg font-medium mb-3 sm:mb-4 text-neutral-300">{service.price}</p>
+                  <p className="text-sm sm:text-base mb-4 sm:mb-6 text-neutral-400 leading-relaxed">{service.description}</p>
+                  {service.items.length > 0 && (
+                    <ul className="space-y-2 sm:space-y-3 text-sm">
+                      {service.items.map((item, i) => (
+                        <li key={i} className="flex items-center">
+                          <Check className="h-5 w-5 mr-2 flex-shrink-0 text-red-700" />
+                          <span className="text-neutral-300">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
         {/* Case Studies - White Background */}
         <section 
@@ -255,52 +215,9 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
-              {[
-                {
-                  title: "Accountancy Firm Automation",
-                  price: "Investment: £5,000",
-                  description:
-                    "We took a mid-sized accountancy firm's old manual bookkeeping and switched it to a slick, automated CRM system with real-time tracking. It cut down tedious work and kept everything spot-on.",
-                  items: [
-                    "50% Less Time on Data Entry",
-                    "£20,000 Saved in Yearly Staff Costs",
-                    "Month-end Close Now Takes a Day, Not a Week",
-                    "Fully Audit-ready, No Stress",
-                  ],
-                  quote: "We're saving 10 hours a week now. The system paid off in two months, and my team's happier focusing on clients, not spreadsheets.",
-                  author: "— Managing Partner"
-                },
-                {
-                  title: "E-commerce Transformation",
-                  price: "Investment: £15,000",
-                  description:
-                    "We gave a struggling furniture retailer's outdated online store a fresh look, making it super easy to shop on phones and turning browsers into buyers across their 2,000+ products.",
-                  items: [
-                    "80% More Sales from Mobile Users",
-                    "Twice as Many People Hitting 'Buy'",
-                    "£50,000 Extra Revenue in Q1",
-                    "Half as Many Abandoned Carts",
-                  ],
-                  quote: "The new site's a game-changer. We earned back the cost in a month—customers love the smooth checkout.",
-                  author: "— Product Manager"
-                },
-                {
-                  title: "Crypto Wallet App",
-                  price: "Investment: £20,000",
-                  description:
-                    "We built a straightforward, secure cryptocurrency wallet app with real-time prices, auto-trading options, and support for multiple wallets—perfect for everyday users.",
-                  items: [
-                    "5,000 People on Waitlist",
-                    "Supports Ethereum Compatible Networks",
-                    "Trades Done in Under 3s",
-                    "Zero Security Incidents",
-                  ],
-                  quote: "It went from idea to beta in three months. Users love the simplicity, and we're ready for full launch.",
-                  author: "— Founder"
-                },
-              ].map((study, index) => (
-              <div
-                key={index}
+              {caseStudiesData.map((study, index) => (
+                <div
+                  key={index}
                   className={`bg-neutral-100 p-8 rounded-2xl hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105 scale-in-child stagger-delay-${index + 1}`}
                   role="listitem"
                 >
@@ -308,190 +225,190 @@ export default function Home() {
                   <p className="card-price text-neutral-700">{study.price}</p>
                   <p className="card-description text-neutral-600">{study.description}</p>
                   <ul className="space-y-3 text-sm mb-6">
-                  {study.items.map((item, i) => (
-                    <li key={i} className="flex items-center">
-                        <Check className="h-5 w-5 mr-2 flex-shrink-0 text-red-700" />
-                      <span className="text-neutral-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <blockquote className="border-l-4 border-red-700 pl-4 italic text-neutral-700">
-                  "{study.quote}"
-                </blockquote>
-                <p className="mt-2 text-sm font-medium text-neutral-600">{study.author}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our DNA - Black Background */}
-      <section 
-        id="about-us" 
-        className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
-        aria-labelledby="dna-title"
-      >
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-sm font-bold tracking-wider uppercase text-red-400">About Us</p>
-            <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our DNA</h2>
-            <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
-              Where Enterprise Rigor Meets Startup Hustle.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
-            {[
-              {
-                title: "Obsession with Outcomes",
-                price: "Our Focus",
-                description: "We don't just deliver projects—we drive transformations. Every engagement is measured by the lasting impact it creates for your business.",
-                items: [
-                  "Measurable ROI on every project",
-                  "Continuous optimization post-launch"
-                ]
-              },
-              {
-                title: "No Hierarchies, Just Expertise",
-                price: "Direct Access",
-                description: "Work directly with former HSBC, UBS, and Aviva veterans. No account managers, no middlemen—just seasoned experts who've solved similar challenges.",
-                items: [
-                  "Direct access to senior experts",
-                  "20+ years enterprise experience"
-                ]
-              },
-              {
-                title: "Speed Without Compromise",
-                price: "Rapid Delivery",
-                description: "Enterprise-grade quality at startup velocity. Our battle-tested frameworks let us move fast while maintaining bank-level standards.",
-                items: [
-                  "2-4 week delivery timeframes",
-                  "Bank-level quality standards"
-                ]
-              },
-              {
-                title: "Bold Ideas, Backed by Proof",
-                price: "Innovation",
-                description: "Innovation isn't just creativity—it's calculated risk-taking. We blend corporate wisdom with startup agility to deliver proven results.",
-                items: [
-                  "Data-driven decision making",
-                  "Enterprise-tested methodologies"
-                ]
-              },
-              {
-                title: "Partners, Not Vendors",
-                price: "Partnership",
-                description: "Your success is our metric. We invest in understanding your business deeply and align our incentives with your growth trajectory.",
-                items: [
-                  "Success-based pricing models",
-                  "Long-term growth alignment"
-                ]
-              },
-              {
-                title: "Enterprise-Grade Security",
-                price: "Protection",
-                description: "Security isn't an add-on—it's woven into our DNA. Every solution inherits two decades of financial sector security practices from UBS and HSBC.",
-                items: [
-                  "Bank-level security protocols",
-                  "Zero security incidents to date"
-                ]
-              },
-            ].map((trait, index) => (
-              <div
-                key={index}
-                className={`bg-neutral-800 p-8 rounded-2xl hover:bg-neutral-700 transition-all duration-300 transform hover:scale-105 scale-in-child stagger-delay-${index + 1}`}
-                role="listitem"
-              >
-                <h3 className="card-title text-white">{trait.title}</h3>
-                <p className="card-price text-neutral-300">{trait.price}</p>
-                <p className="card-description text-neutral-400">{trait.description}</p>
-                <ul className="space-y-3 text-sm">
-                  {trait.items.map((item, i) => (
+                    {study.items.map((item, i) => (
                       <li key={i} className="flex items-center">
-                      <Check className="h-5 w-5 mr-2 flex-shrink-0 text-red-700" />
-                      <span className="text-neutral-300">{item}</span>
+                        <Check className="h-5 w-5 mr-2 flex-shrink-0 text-red-700" />
+                        <span className="text-neutral-700">{item}</span>
                       </li>
                     ))}
                   </ul>
-              </div>
-            ))}
+                  <blockquote className="border-l-4 border-red-700 pl-4 italic text-neutral-700">
+                    "{study.quote}"
+                  </blockquote>
+                  <p className="mt-2 text-sm font-medium text-neutral-600">{study.author}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ Section - White Background */}
-      <section 
-        id="faq" 
-        className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-white text-neutral-900"
-        aria-labelledby="faq-title"
-      >
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-sm font-bold tracking-wider uppercase text-red-700">FAQ</p>
-            <h2 id="faq-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Common Questions</h2>
-            <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
-              Everything you need to know about working with us.
-            </p>
-          </div>
+        {/* Our DNA - Black Background */}
+        <section 
+          id="about-us" 
+          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
+          aria-labelledby="dna-title"
+        >
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <p className="text-sm font-bold tracking-wider uppercase text-red-400">About Us</p>
+              <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our DNA</h2>
+              <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
+                Where Enterprise Rigor Meets Startup Hustle.
+              </p>
+            </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Suspense fallback={
-              <div className="animate-pulse bg-neutral-100 h-96 rounded-lg" />
-            }>
-              <Accordion type="single" collapsible>
-                {faqData.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`} className="border-b border-neutral-200">
-                    <AccordionTrigger className="text-lg font-semibold text-left hover:text-red-700 transition-colors py-6">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-neutral-700 pb-6 text-lg">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Suspense>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
+              {[
+                {
+                  title: "Obsession with Outcomes",
+                  price: "Our Focus",
+                  description: "We don't just deliver projects—we drive transformations. Every engagement is measured by the lasting impact it creates for your business.",
+                  items: [
+                    "Measurable ROI on every project",
+                    "Continuous optimization post-launch"
+                  ]
+                },
+                {
+                  title: "No Hierarchies, Just Expertise",
+                  price: "Direct Access",
+                  description: "Work directly with former HSBC, UBS, and Aviva veterans. No account managers, no middlemen—just seasoned experts who've solved similar challenges.",
+                  items: [
+                    "Direct access to senior experts",
+                    "20+ years enterprise experience"
+                  ]
+                },
+                {
+                  title: "Speed Without Compromise",
+                  price: "Rapid Delivery",
+                  description: "Enterprise-grade quality at startup velocity. Our battle-tested frameworks let us move fast while maintaining bank-level standards.",
+                  items: [
+                    "2-4 week delivery timeframes",
+                    "Bank-level quality standards"
+                  ]
+                },
+                {
+                  title: "Bold Ideas, Backed by Proof",
+                  price: "Innovation",
+                  description: "Innovation isn't just creativity—it's calculated risk-taking. We blend corporate wisdom with startup agility to deliver proven results.",
+                  items: [
+                    "Data-driven decision making",
+                    "Enterprise-tested methodologies"
+                  ]
+                },
+                {
+                  title: "Partners, Not Vendors",
+                  price: "Partnership",
+                  description: "Your success is our metric. We invest in understanding your business deeply and align our incentives with your growth trajectory.",
+                  items: [
+                    "Success-based pricing models",
+                    "Long-term growth alignment"
+                  ]
+                },
+                {
+                  title: "Enterprise-Grade Security",
+                  price: "Protection",
+                  description: "Security isn't an add-on—it's woven into our DNA. Every solution inherits two decades of financial sector security practices from UBS and HSBC.",
+                  items: [
+                    "Bank-level security protocols",
+                    "Zero security incidents to date"
+                  ]
+                },
+              ].map((trait, index) => (
+                <div
+                  key={index}
+                  className={`bg-neutral-800 p-8 rounded-2xl hover:bg-neutral-700 transition-all duration-300 transform hover:scale-105 scale-in-child stagger-delay-${index + 1}`}
+                  role="listitem"
+                >
+                  <h3 className="card-title text-white">{trait.title}</h3>
+                  <p className="card-price text-neutral-300">{trait.price}</p>
+                  <p className="card-description text-neutral-400">{trait.description}</p>
+                  <ul className="space-y-3 text-sm">
+                    {trait.items.map((item, i) => (
+                      <li key={i} className="flex items-center">
+                        <Check className="h-5 w-5 mr-2 flex-shrink-0 text-red-700" />
+                        <span className="text-neutral-300">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* FAQ Section - White Background */}
+        <section 
+          id="faq" 
+          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-white text-neutral-900"
+          aria-labelledby="faq-title"
+        >
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <p className="text-sm font-bold tracking-wider uppercase text-red-700">FAQ</p>
+              <h2 id="faq-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Common Questions</h2>
+              <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
+                Everything you need to know about working with us.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <Suspense fallback={
+                <div className="animate-pulse bg-neutral-100 h-96 rounded-lg" />
+              }>
+                <Accordion type="single" collapsible>
+                  {faqData.map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index}`} className="border-b border-neutral-200">
+                      <AccordionTrigger className="text-lg font-semibold text-left hover:text-red-700 transition-colors py-6">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-neutral-700 pb-6 text-lg">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </Suspense>
+            </div>
+          </div>
+        </section>
 
         {/* Contact - Black Background */}
-      <section 
-        id="contact" 
-        className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
-        aria-labelledby="contact-title"
-      >
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-sm font-bold tracking-wider uppercase text-red-400">Contact</p>
-            <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Let's Get Started</h2>
-            <p className="text-lg sm:text-md font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
-              No pressure, no obligation—just actionable insights you can implement immediately.
+        <section 
+          id="contact" 
+          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
+          aria-labelledby="contact-title"
+        >
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <p className="text-sm font-bold tracking-wider uppercase text-red-400">Contact</p>
+              <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Let's Get Started</h2>
+              <p className="text-lg sm:text-md font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
+                No pressure, no obligation—just actionable insights you can implement immediately.
+              </p>
+            </div>
+
+            <div className="flex flex-row flex-wrap justify-center items-center gap-4 sm:gap-6">
+              <Button 
+                className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-10 py-3 text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 min-w-[200px] sm:min-w-[auto] min-h-[44px]"
+              >
+                <Link href="mailto:hello@profusion.io" className="flex items-center justify-center min-h-[44px] min-w-[44px] px-2">
+                  hello@profusion.io
+                </Link>
+              </Button>
+              <Button
+                className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-10 py-3 text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 min-w-[200px] sm:min-w-[auto] min-h-[44px]"
+                aria-label="Book your free 30-minute strategy call"
+              >
+                <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center min-h-[44px] min-w-[44px] px-2">
+                  Book Your Free 30-Min Strategy Call
+                </Link>
+              </Button>
+            </div>
+            <p className="text-neutral-300 text-center mt-10 text-sm sm:text-base">
+              We are fully remote, but maintain physical presence in London, Hamburg, and Bangalore.
             </p>
           </div>
-
-          <div className="flex flex-row flex-wrap justify-center items-center gap-4 sm:gap-6">
-            <Button 
-              className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-10 py-3 text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 min-w-[200px] sm:min-w-[auto] min-h-[44px]"
-            >
-              <Link href="mailto:hello@profusion.io" className="flex items-center justify-center min-h-[44px] min-w-[44px] px-2">
-                hello@profusion.io
-              </Link>
-            </Button>
-            <Button
-              className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-10 py-3 text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 min-w-[200px] sm:min-w-[auto] min-h-[44px]"
-              aria-label="Book your free 30-minute strategy call"
-            >
-              <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center min-h-[44px] min-w-[44px] px-2">
-                Book Your Free 30-Min Strategy Call
-              </Link>
-            </Button>
-          </div>
-          <p className="text-neutral-300 text-center mt-10 text-sm sm:text-base">
-            We are fully remote, but maintain physical presence in London, Hamburg, and Bangalore.
-          </p>
-        </div>
-      </section>
+        </section>
       </main>
 
       {/* Footer - White Background */}
