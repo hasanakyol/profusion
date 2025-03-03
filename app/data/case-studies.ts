@@ -9,7 +9,7 @@ export interface CaseStudy {
 
 export const caseStudiesData: CaseStudy[] = [
   {
-    title: "Accountancy Firm Automation",
+    title: "Data and System Migration",
     price: "Investment: £5,000",
     description:
       "We took a mid-sized accountancy firm's old manual bookkeeping and switched it to a slick, automated CRM system with real-time tracking. It cut down tedious work and kept everything spot-on.",
@@ -23,7 +23,7 @@ export const caseStudiesData: CaseStudy[] = [
     author: "— Managing Partner"
   },
   {
-    title: "E-commerce Transformation",
+    title: "E-commerce Web Design",
     price: "Investment: £15,000",
     description:
       "We gave a struggling furniture retailer's outdated online store a fresh look, making it super easy to shop on phones and turning browsers into buyers across their 2,000+ products.",
@@ -37,7 +37,7 @@ export const caseStudiesData: CaseStudy[] = [
     author: "— Product Manager"
   },
   {
-    title: "Crypto Wallet App",
+    title: "Mobile Wallet Application",
     price: "Investment: £20,000",
     description:
       "We built a straightforward, secure cryptocurrency wallet app with real-time prices, auto-trading options, and support for multiple wallets—perfect for everyday users.",

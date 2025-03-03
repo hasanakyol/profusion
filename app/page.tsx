@@ -253,7 +253,7 @@ export default function Home() {
               <p className="text-base font-bold tracking-wider uppercase text-red-500">About Us</p>
               <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Enterprise DNA, Startup Spirit</h2>
               <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
-                Where Enterprise Rigor Meets Startup Hustle.
+                Where enterprise rigor meets startup hustle.
               </p>
             </div>
 
