@@ -33,7 +33,6 @@ export default function Home() {
     if (element) {
       const header = document.querySelector('header')
       const headerHeight = header?.getBoundingClientRect().height || 0
-      const topPadding = 0 // Remove extra padding
       const offsetPosition = element.offsetTop - headerHeight
 
       window.scrollTo({
