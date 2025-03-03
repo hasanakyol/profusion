@@ -145,7 +145,7 @@ export default function Home() {
         >
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
-              <p className="text-sm font-bold tracking-wider uppercase text-red-700">Services</p>
+              <p className="text-sm font-bold tracking-wider uppercase text-red-400">Services</p>
               <h2 id="services-title" className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-2">Our Expertise, Your Edge</h2>
               <p className="text-base sm:text-lg md:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto px-4">
                 Fixed prices. No surprises. Payment plans available.
@@ -333,7 +333,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold tracking-wider uppercase text-red-700">About Us</p>
+            <p className="text-sm font-bold tracking-wider uppercase text-red-400">About Us</p>
             <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our DNA</h2>
             <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
               Where Enterprise Rigor Meets Startup Hustle.
@@ -463,7 +463,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold tracking-wider uppercase text-red-700">Contact</p>
+            <p className="text-sm font-bold tracking-wider uppercase text-red-400">Contact</p>
             <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Let's Get Started</h2>
             <p className="text-lg sm:text-md font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
               No pressure, no obligation—just actionable insights you can implement immediately.
@@ -557,13 +557,13 @@ export default function Home() {
             {/* Social and Legal Links */}
             <div className="flex flex-col sm:flex-row items-center w-full sm:w-1/4 justify-end">
               <div className="flex items-center gap-4">
-                <Link href="https://linkedin.com/in/hasanakyol" target="_blank" rel="noopener noreferrer" className="text-neutral-700 hover:text-red-700 transition-colors">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <Link href="https://linkedin.com/in/hasanakyol" target="_blank" rel="noopener noreferrer" className="text-neutral-700 hover:text-red-700 transition-colors" aria-label="Visit Hasan Akyol's LinkedIn profile">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                   </svg>
                 </Link>
-                <Link href="https://twitter.com/imoffactually" target="_blank" rel="noopener noreferrer" className="text-neutral-700 hover:text-red-700 transition-colors">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <Link href="https://twitter.com/imoffactually" target="_blank" rel="noopener noreferrer" className="text-neutral-700 hover:text-red-700 transition-colors" aria-label="Visit Hasan Akyol's Twitter profile">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
                 </Link>
