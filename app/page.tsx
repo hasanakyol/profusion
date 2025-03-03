@@ -15,14 +15,20 @@ import { spacing, typography } from './styles'
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  if (!mounted) {
+    return null // or return a loading skeleton
+  }
 
   return (
     <div className="min-h-screen font-sans">
@@ -81,7 +87,7 @@ export default function Home() {
         >
           <div className={spacing.container}>
             <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8">
-              <h1 id="hero-title" className="space-y-1 sm:space-y-2 md:space-y-3">
+              <h1 id="hero-title" className="space-y-2 sm:space-y-3 md:space-y-4">
                 <span className={`block ${typography.h1}`}>Enterprise Expertise</span>
                 <span className={`block ${typography.h1} text-swiss-red`}>Startup Speed</span>
                 <span className={`block ${typography.h1}`}>Fixed Pricing</span>
@@ -223,46 +229,46 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
               {[
                 {
-                  title: "FinTech Security Audit",
+                  title: "Accountancy Firm Automation",
                   price: "Investment: £5,000",
                   description:
-                    "Applied HSBC's enterprise security framework to identify and eliminate critical vulnerabilities for a fast-growing fintech platform.",
+                    "We took a mid-sized accountancy firm's old manual bookkeeping and switched it to a slick, automated CRM system with real-time tracking. It cut down tedious work and kept everything spot-on.",
                   items: [
-                    "6 Critical Vulnerabilities Resolved",
-                    "£500K Annual Cost Savings",
-                    "200% ROI in 6 Months",
-                    "Zero Security Incidents Post-Implementation",
+                    "50% Less Time on Data Entry",
+                    "£20,000 Saved in Yearly Staff Costs",
+                    "Month-end Close Now Takes a Day, Not a Week",
+                    "Fully Audit-ready, No Stress",
                   ],
-                  quote: "Profusion's audit transformed our security posture and uncovered significant cost savings. Enterprise-grade results at startup pricing.",
-                  author: "— CTO, Leading Fintech"
+                  quote: "We're saving 10 hours a week now. The system paid off in two months, and my team's happier focusing on clients, not spreadsheets.",
+                  author: "— Managing Partner"
                 },
                 {
                   title: "E-commerce Transformation",
-                  price: "Investment: £10,000",
-                  description:
-                    "Leveraged Aviva's conversion optimization playbook to transform a struggling mobile experience into a revenue powerhouse.",
-                  items: [
-                    "70% Mobile Bounce Rate Reduction",
-                    "3x Mobile Conversion Rate",
-                    "50% Faster User Journey",
-                    "95% Customer Satisfaction",
-                  ],
-                  quote: "Our mobile experience went from our biggest weakness to our strongest revenue channel. The ROI was immediate and substantial.",
-                  author: "— Head of Digital, Global Retailer"
-                },
-                {
-                  title: "Enterprise Platform Launch",
                   price: "Investment: £15,000",
                   description:
-                    "Delivered a secure, scalable enterprise platform in 90 days using UBS's battle-tested development methodology.",
+                    "We gave a struggling furniture retailer's outdated online store a fresh look, making it super easy to shop on phones and turning browsers into buyers across their 2,000+ products.",
                   items: [
-                    "90-Day Delivery Timeline",
-                    "127% First Quarter ROI",
-                    "Zero Security Incidents",
-                    "500% User Growth Supported",
+                    "80% More Sales from Mobile Users",
+                    "Twice as Many People Hitting 'Buy'",
+                    "£50,000 Extra Revenue in Q1",
+                    "Half as Many Abandoned Carts",
                   ],
-                  quote: "Profusion delivered UBS-level quality at startup speed. The platform scaled flawlessly as we grew from 1,000 to 50,000 users.",
-                  author: "— CEO, Enterprise SaaS Platform"
+                  quote: "The new site's a game-changer. We earned back the cost in a month—customers love the smooth checkout.",
+                  author: "— Product Manager"
+                },
+                {
+                  title: "Crypto Wallet App",
+                  price: "Investment: £20,000",
+                  description:
+                    "We built a straightforward, secure cryptocurrency wallet app with real-time prices, auto-trading options, and support for multiple wallets—perfect for everyday users.",
+                  items: [
+                    "5,000 People on Waitlist",
+                    "Supports Ethereum Compatible Networks",
+                    "Trades Done in Under 3s",
+                    "Zero Security Incidents",
+                  ],
+                  quote: "It went from idea to beta in three months. Users love the simplicity, and we're ready for full launch.",
+                  author: "— Founder"
                 },
               ].map((study, index) => (
               <div
