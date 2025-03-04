@@ -405,7 +405,7 @@ export default function Home() {
               </Button>
             </div>
             <p className="text-neutral-300 text-center mt-10 text-sm sm:text-base italic">
-              We are fully remote, but maintain physical presence in London, Hamburg, Krakow, Istanbul, and Bangalore.
+              We are fully remote, but maintain physical presence in London, Hamburg, Warsaw, Istanbul, and Bangalore.
             </p>
           </div>
         </section>
