@@ -52,7 +52,7 @@ export const servicesData: ServiceItem[] = [
     description:
       "On-demand access to senior technical expertise. From rapid development sprints to strategic guidance, we're your dedicated partner.",
     items: [
-      "£2,500/month: 20 Hours Dedicated Support",
+      "£2,500/month: 25 Hours Dedicated Support",
       "£5,000/month: 50 Hours Dedicated Support",
     ],
   },
