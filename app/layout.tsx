@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     description: "Enterprise-grade audit, design, development & operations for SMEs. Built by former UBS, HSBC & Aviva senior experts.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://profusion.io/og-image.jpeg",
         width: 1200,
         height: 630,
         alt: "Profusion - Enterprise Expertise at Startup Speed",
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
     description: "Enterprise-grade audit, design, development & operations for SMEs. Built by former UBS, HSBC & Aviva senior experts.",
     images: [
       {
-        url: "/og-twitter-image.jpg",
+        url: "https://profusion.io/og-image.jpeg",
         width: 1200,
-        height: 600,
+        height: 630,
         alt: "Profusion - Enterprise Expertise at Startup Speed",
       }
     ],
