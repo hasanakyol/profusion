@@ -155,8 +155,9 @@ export default function Home() {
             className={`md:hidden fixed inset-0 bg-white z-[100] transform transition-transform duration-300 ease-in-out ${
               mobileMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
+            style={{ height: '100dvh' }}
           >
-            <div className="flex flex-col min-h-screen bg-white pt-safe pb-safe pl-safe pr-safe">
+            <div className="flex flex-col h-full bg-white">
               <div className="flex justify-between items-center p-4 border-b border-neutral-200 bg-white">
                 <Link href="#" className="link-underline group" onClick={() => setMobileMenuOpen(false)}>
                   <span className="relative inline-block font-black text-2xl tracking-tighter text-primary">
@@ -183,20 +184,22 @@ export default function Home() {
                   </svg>
                 </button>
               </div>
-              <nav className="flex flex-col p-4 bg-white flex-1 justify-center">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={`#${item.id}`}
-                    onClick={(e) => {
-                      handleNavClick(e, item.id);
-                      setMobileMenuOpen(false);
-                    }}
-                    className="text-2xl font-medium touch-optimize py-4 px-2 hover:bg-neutral-100 rounded-lg transition-colors text-center"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+              <nav className="flex flex-col flex-1 p-4 bg-white overflow-y-auto">
+                <div className="flex flex-col flex-1 justify-center items-center space-y-6">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={`#${item.id}`}
+                      onClick={(e) => {
+                        handleNavClick(e, item.id);
+                        setMobileMenuOpen(false);
+                      }}
+                      className="text-2xl font-medium touch-optimize px-2 hover:bg-neutral-100 rounded-lg transition-colors text-center w-full py-4"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
                 <Button 
                   className="button-base bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full text-base font-medium transition-all duration-300 ease-in-out transform hover:scale-105 mt-8 w-full px-6 py-2 min-h-[40px]"
                   aria-label="Book a free 30-minute strategy call"
