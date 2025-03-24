@@ -40,6 +40,7 @@ const JsonLd = dynamic(() => import('./components/JsonLd'), {
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Memoize navigation items
   const navItems = [
@@ -83,7 +84,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen font-sans">
+    <div className="min-h-screen font-sans landscape-optimize portrait-optimize">
       <JsonLd />
       {/* Skip to main content link */}
       <a href="#main-content" className="skip-to-content">
@@ -91,22 +92,54 @@ export default function Home() {
       </a>
 
       {/* Navigation */}
-      <header className={`fixed w-full z-50 backdrop-blur-md safe-top transition-all duration-300 ${isScrolled ? 'bg-white/95 shadow-md' : 'bg-white/80'}`} role="banner">
-        <div className={`${spacing.container} py-3 sm:py-4 flex items-center justify-between ${spacing.gap}`}>
-          <Link href="#" className="link-underline group" aria-label="Profusion - Back to homepage">
-            <span className="relative inline-block font-black text-2xl sm:text-3xl tracking-tighter text-primary">
+      <header className={`fixed w-full z-50 backdrop-blur-md safe-top landscape-optimize-header transition-all duration-300 ${isScrolled ? 'bg-white/95 shadow-md' : 'bg-white/80'}`} role="banner">
+        <div className={`container py-3 sm:py-4 flex items-center justify-between gap-4`}>
+          <Link href="#" className="link-underline group touch-optimize" aria-label="Profusion - Back to homepage">
+            <span className="relative inline-block font-black text-xl sm:text-2xl tracking-tighter text-primary">
               Profusion
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" 
                     aria-hidden="true" />
             </span>
           </Link>
+          
+          {/* Mobile Navigation Button */}
+          <button
+            className="md:hidden button-base touch-optimize p-2 min-w-[40px] min-h-[40px]"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {mobileMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8" role="navigation" aria-label="Main navigation">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className="nav-link relative group text-sm"
+                className="nav-link relative group text-sm touch-optimize"
                 aria-label={`Navigate to ${item.name} section`}
               >
                 <span className="relative inline-block">
@@ -117,36 +150,97 @@ export default function Home() {
               </Link>
             ))}
           </nav>
+
+          {/* Mobile Navigation Menu */}
+          <div
+            className={`md:hidden fixed inset-0 bg-white z-[100] transform transition-transform duration-300 ease-in-out ${
+              mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
+            <div className="flex flex-col min-h-screen bg-white pt-safe pb-safe pl-safe pr-safe">
+              <div className="flex justify-between items-center p-4 border-b border-neutral-200 bg-white">
+                <Link href="#" className="link-underline group" onClick={() => setMobileMenuOpen(false)}>
+                  <span className="relative inline-block font-black text-2xl tracking-tighter text-primary">
+                    Profusion
+                  </span>
+                </Link>
+                <button
+                  className="button-base touch-optimize p-2 min-w-[40px] min-h-[40px] hover:bg-neutral-100 rounded-full transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <nav className="flex flex-col p-4 bg-white flex-1 justify-center">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      handleNavClick(e, item.id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="text-2xl font-medium touch-optimize py-4 px-2 hover:bg-neutral-100 rounded-lg transition-colors text-center"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <Button 
+                  className="button-base bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full text-base font-medium transition-all duration-300 ease-in-out transform hover:scale-105 mt-8 w-full px-6 py-2 min-h-[40px]"
+                  aria-label="Book a free 30-minute strategy call"
+                >
+                  <Link href="https://cal.com/eksik/30min" className="flex items-center justify-center whitespace-nowrap w-full px-2">
+                    Book a Call
+                  </Link>
+                </Button>
+              </nav>
+            </div>
+          </div>
+
+          {/* Navigation Button */}
           <Button 
-            className={`bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full ${spacing.button} text-base sm:text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shrink-0 min-h-[44px] min-w-[44px] px-6 py-3`}
+            className="button-base bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full text-base font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hidden md:flex touch-optimize px-6 py-2 min-w-[auto] min-h-[40px]"
             aria-label="Book a free 30-minute strategy call"
           >
-            <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center whitespace-nowrap min-h-[44px] min-w-[44px] px-2">
+            <Link href="https://cal.com/eksik/30min" className="flex items-center justify-center whitespace-nowrap px-2">
               Book a Call
             </Link>
           </Button>
         </div>
       </header>
 
-      <main id="main-content" role="main">
-        {/* Hero - White Background */}
+      <main id="main-content" role="main" className="landscape-optimize-content">
+        {/* Hero Section */}
         <section 
           className="pt-24 sm:pt-32 md:pt-40 pb-16 sm:pb-21 md:pb-27 bg-white text-neutral-900" 
           aria-labelledby="hero-title"
         >
-          <div className={spacing.container}>
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8">
-              <h1 id="hero-title" className="space-y-2 sm:space-y-3 md:space-y-4">
-                <span className={`block ${typography.h1}`}>Enterprise Expertise</span>
-                <span className={`block ${typography.h1} text-red-700`}>Startup Speed</span>
-                <span className={`block ${typography.h1}`}>Fixed Pricing</span>
+              <h1 id="hero-title" className="space-y-2 sm:space-y-3 md:space-y-4 heading-responsive">
+                <span className="block">Enterprise Expertise</span>
+                <span className="block text-red-700">Startup Speed</span>
+                <span className="block">Fixed Pricing</span>
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl font-medium text-neutral-700 max-w-2xl mx-auto">
+              <p className="text-responsive font-medium text-neutral-700 max-w-2xl mx-auto">
                 Enterprise-grade audit, design, development & operations for SMEs. Built by former UBS, HSBC & Aviva senior experts.
               </p>
               <div className="px-4 sm:px-0">
-                <Button className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-6 sm:px-10 py-2.5 sm:py-5 text-base sm:text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 w-full sm:w-auto min-h-[44px] min-w-[44px]">
-                  <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center min-h-[44px] min-w-[44px] px-2">
+                <Button className="button-base bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full w-full sm:w-auto touch-optimize px-6 py-2 min-w-[180px] sm:min-w-[auto] min-h-[40px]">
+                  <Link href="https://cal.com/eksik/30min" className="flex items-center justify-center text-base font-medium px-2">
                     Book Your Free 30-Min Strategy Call
                   </Link>
                 </Button>
@@ -158,22 +252,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services - Black Background */}
+        {/* Services Section */}
         <section 
           id="services" 
-          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
+          className="pt-16 pb-16 bg-neutral-900 text-white"
           aria-labelledby="services-title"
         >
-          <div className="container mx-auto px-4 sm:px-6">
+          <div className="container">
             <div className="text-center mb-12">
               <p className="text-base font-bold tracking-wider uppercase text-red-500">Services</p>
-              <h2 id="services-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Our Expertise, Your Edge</h2>
-              <p className="text-base sm:text-lg md:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto px-4">
+              <h2 id="services-title" className="heading-responsive font-extrabold tracking-tight text-white mt-2">Our Expertise, Your Edge</h2>
+              <p className="text-responsive font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
                 Fixed prices. No surprises. Payment plans available.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8" role="list">
+            <div className="grid-responsive" role="list">
               {servicesData.map((service, index) => (
                 <div
                   key={index}
@@ -199,22 +293,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Case Studies - White Background */}
+        {/* Case Studies Section */}
         <section 
           id="case-studies" 
-          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-white text-neutral-900"
+          className="pt-16 pb-16 bg-white text-neutral-900"
           aria-labelledby="case-studies-title"
         >
-          <div className="container mx-auto px-6">
+          <div className="container">
             <div className="text-center mb-12">
               <p className="text-base font-bold tracking-wider uppercase text-red-700">Case Studies</p>
-              <h2 id="case-studies-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Real Results, Real Impact</h2>
-              <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
+              <h2 id="case-studies-title" className="heading-responsive font-extrabold tracking-tight text-primary mt-2">Real Results, Real Impact</h2>
+              <p className="text-responsive font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
                 Enterprise-grade solutions that deliver measurable ROI.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
+            <div className="grid-responsive" role="list">
               {caseStudiesData.map((study, index) => (
                 <div
                   key={index}
@@ -242,22 +336,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Our DNA - Black Background */}
+        {/* Our DNA Section */}
         <section 
           id="about-us" 
-          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
+          className="pt-16 pb-16 bg-neutral-900 text-white"
           aria-labelledby="dna-title"
         >
-          <div className="container mx-auto px-6">
+          <div className="container">
             <div className="text-center mb-12">
               <p className="text-base font-bold tracking-wider uppercase text-red-500">About Us</p>
-              <h2 id="dna-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Enterprise DNA, Startup Spirit</h2>
-              <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
+              <h2 id="dna-title" className="heading-responsive font-extrabold tracking-tight text-white mt-2">Enterprise DNA, Startup Spirit</h2>
+              <p className="text-responsive font-medium text-neutral-300 mt-4 max-w-2xl mx-auto">
                 Where enterprise rigor meets startup hustle.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12" role="list">
+            <div className="grid-responsive" role="list">
               {[
                 {
                   title: "Obsession with Outcomes",
@@ -336,17 +430,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FAQ Section - White Background */}
+        {/* FAQ Section */}
         <section 
           id="faq" 
-          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-white text-neutral-900"
+          className="pt-16 pb-16 bg-white text-neutral-900"
           aria-labelledby="faq-title"
         >
-          <div className="container mx-auto px-6">
+          <div className="container">
             <div className="text-center mb-12">
               <p className="text-base font-bold tracking-wider uppercase text-red-700">FAQ</p>
-              <h2 id="faq-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">Your Questions, Our Answers</h2>
-              <p className="text-lg sm:text-xl font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
+              <h2 id="faq-title" className="heading-responsive font-extrabold tracking-tight text-primary mt-2">Your Questions, Our Answers</h2>
+              <p className="text-responsive font-medium text-neutral-700 mt-4 max-w-2xl mx-auto">
                 What you need to know about working with us.
               </p>
             </div>
@@ -372,62 +466,65 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact - Black Background */}
+        {/* Contact Section */}
         <section 
           id="contact" 
-          className="pt-6 sm:pt-16 md:pt-16 pb-6 sm:pb-16 md:pb-16 bg-neutral-900 text-white"
+          className="pt-16 pb-16 bg-neutral-900 text-white"
           aria-labelledby="contact-title"
         >
-          <div className="container mx-auto px-6">
+          <div className="container">
             <div className="text-center mb-12">
               <p className="text-base font-bold tracking-wider uppercase text-red-500">Contact</p>
-              <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2">Ready, Steady, Go!</h2>
-              <p className="text-lg sm:text-xl font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
+              <h2 id="contact-title" className="heading-responsive font-extrabold tracking-tight text-white mt-2">Ready, Steady, Go!</h2>
+              <p className="text-responsive font-medium text-neutral-300 mt-4 max-w-3xl mx-auto">
                 No pressure, no obligation—just actionable insights you can implement immediately.
               </p>
             </div>
 
             <div className="flex flex-row flex-wrap justify-center items-center gap-4 sm:gap-6">
               <Button 
-                className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-10 py-3 text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 min-w-[200px] sm:min-w-[auto] min-h-[44px]"
+                className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-6 py-2 transition-all duration-300 ease-in-out transform hover:scale-105 min-w-[180px] sm:min-w-[auto] min-h-[40px]"
               >
-                <Link href="mailto:hello@profusion.io" className="flex items-center justify-center min-h-[44px] min-w-[44px] px-2">
+                <Link href="mailto:hello@profusion.io" className="flex items-center justify-center min-h-[40px] min-w-[40px] px-2 text-base font-medium">
                   hello@profusion.io
                 </Link>
               </Button>
               <Button
-                className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-10 py-3 text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 min-w-[200px] sm:min-w-[auto] min-h-[44px]"
+                className="bg-red-700 text-white hover:bg-white hover:text-red-800 rounded-full px-6 py-2 transition-all duration-300 ease-in-out transform hover:scale-105 min-w-[180px] sm:min-w-[auto] min-h-[40px]"
                 aria-label="Book your free 30-minute strategy call"
               >
-                <Link href="https://cal.com/profusion/30min" className="flex items-center justify-center min-h-[44px] min-w-[44px] px-2">
+                <Link href="https://cal.com/eksik/30min" className="flex items-center justify-center min-h-[40px] min-w-[40px] px-2 text-base font-medium">
                   Book Your Free 30-Min Strategy Call
                 </Link>
               </Button>
             </div>
-            <p className="text-neutral-300 text-center mt-10 text-sm sm:text-base italic">
-              We are fully remote, but maintain physical presence in London, Hamburg, Warsaw, Istanbul, and Bangalore.
-            </p>
           </div>
         </section>
       </main>
 
-      {/* Footer - White Background */}
-      <footer className="py-8 sm:py-12 bg-white text-neutral-900" role="contentinfo">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-8">
+      {/* Footer with responsive updates */}
+      <footer className="py-8 sm:py-12 bg-neutral-900 text-white" role="contentinfo">
+        <div className="container">
+          <p className="text-neutral-400 text-center text-sm sm:text-base italic">
+            We are fully remote, but maintain physical presence in London, Hamburg, Warsaw, Istanbul, and Bangalore.
+          </p>
+          
+          <hr className="border-neutral-400 my-8" />
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Logo and Copyright */}
-            <div className="text-center sm:text-left w-full sm:w-1/4">
+            <div className="text-center sm:text-left">
               <Link href="#" className="link-underline group">
-                <span className="relative inline-block font-black text-xl text-primary">
+                <span className="relative inline-block font-black text-xl text-white">
                   Profusion
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" 
                         aria-hidden="true" />
                 </span>
               </Link>
-              <p className="text-sm text-neutral-700 mt-2">
+              <p className="text-sm text-neutral-400 mt-2">
                 © {new Date().getFullYear()} Profusion. All rights reserved.<br />
                 <span className="text-neutral-500">
-                  Profusion is the trading name of Eksik Limited.<br className="hidden sm:block" />
+                  Profusion is the trading name of Eksik Limited.<br />
                 </span>
                 <span className="text-neutral-500">
                   Registered in England and Wales (#14514083).
@@ -436,67 +533,27 @@ export default function Home() {
             </div>
 
             {/* Navigation */}
-            <nav className="flex flex-row flex-wrap justify-center w-full sm:w-2/4 order-first sm:order-none">
-              <div className="flex flex-row flex-wrap justify-center gap-4 sm:gap-6 mx-auto">
-                <Link href="#services" onClick={(e) => handleNavClick(e, 'services')} className="group">
-                  <span className="relative inline-block text-sm text-neutral-700">
-                    Services
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" aria-hidden="true" />
-                  </span>
+            <nav className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={`#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
+                  className="text-sm text-neutral-400 hover:text-white transition-colors"
+                >
+                  {item.name}
                 </Link>
-                <Link href="#case-studies" onClick={(e) => handleNavClick(e, 'case-studies')} className="group">
-                  <span className="relative inline-block text-sm text-neutral-700">
-                    Case Studies
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" aria-hidden="true" />
-                  </span>
-                </Link>
-                <Link href="#about-us" onClick={(e) => handleNavClick(e, 'about-us')} className="group">
-                  <span className="relative inline-block text-sm text-neutral-700">
-                    About Us
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" aria-hidden="true" />
-                  </span>
-                </Link>
-                <Link href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="group">
-                  <span className="relative inline-block text-sm text-neutral-700">
-                    FAQ
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" aria-hidden="true" />
-                  </span>
-                </Link>
-                <Link href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="group">
-                  <span className="relative inline-block text-sm text-neutral-700">
-                    Contact
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" aria-hidden="true" />
-                  </span>
-                </Link>
-              </div>
+              ))}
             </nav>
 
-            {/* Social and Legal Links */}
-            <div className="flex flex-col sm:flex-row items-center w-full sm:w-1/4 justify-end">
+            {/* Legal Links */}
+            <div className="flex flex-col items-center sm:items-end gap-4">
               <div className="flex items-center gap-4">
-                <Link href="https://linkedin.com/in/hasanakyol" target="_blank" rel="noopener noreferrer" className="text-neutral-700 hover:text-red-700 transition-colors" aria-label="Visit Hasan Akyol's LinkedIn profile">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
+                <Link href="/terms" className="text-sm text-neutral-400 hover:text-white transition-colors">
+                  Terms of Service
                 </Link>
-                <Link href="https://twitter.com/imoffactually" target="_blank" rel="noopener noreferrer" className="text-neutral-700 hover:text-red-700 transition-colors" aria-label="Visit Hasan Akyol's Twitter profile">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </Link>
-              </div>
-              <div className="flex items-center gap-4 text-sm mt-4 sm:mt-0 sm:ml-4">
-                <Link href="/terms" className="group">
-                  <span className="relative inline-block text-sm text-neutral-700">
-                    Terms of Service
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" aria-hidden="true" />
-                  </span>
-                </Link>
-                <Link href="/privacy" className="group">
-                  <span className="relative inline-block text-sm text-neutral-700">
-                    Privacy Policy
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 ease-out group-hover:w-full" aria-hidden="true" />
-                  </span>
+                <Link href="/privacy" className="text-sm text-neutral-400 hover:text-white transition-colors">
+                  Privacy Policy
                 </Link>
               </div>
             </div>

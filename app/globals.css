@@ -17,6 +17,21 @@
     --animation-duration-normal: 0.5s;
     --animation-duration-slow: 0.8s;
 
+    /* Responsive spacing variables */
+    --container-padding-mobile: 1rem;
+    --container-padding-tablet: 2rem;
+    --container-padding-desktop: 4rem;
+    
+    /* Dynamic font sizes */
+    --font-size-base-mobile: 16px;
+    --font-size-base-tablet: 16px;
+    --font-size-base-desktop: 16px;
+    
+    /* Dynamic spacing */
+    --spacing-base-mobile: 1rem;
+    --spacing-base-tablet: 1.5rem;
+    --spacing-base-desktop: 2rem;
+
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
 
@@ -226,6 +241,102 @@
   
   .pr-safe {
     padding-right: var(--safe-area-right);
+  }
+
+  .text-responsive {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  }
+
+  .heading-responsive {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+    line-height: 1.1;
+  }
+
+  /* Landscape mode optimizations */
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    .landscape-optimize {
+      padding-top: var(--safe-area-top);
+      padding-bottom: var(--safe-area-bottom);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .landscape-optimize-header {
+      position: relative;
+      transform: none;
+      padding: 0.5rem 0;
+    }
+
+    .landscape-optimize-content {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  /* Portrait mode optimizations */
+  @media screen and (orientation: portrait) {
+    .portrait-optimize {
+      min-height: -webkit-fill-available;
+    }
+  }
+
+  /* Touch device optimizations */
+  @media (hover: none) and (pointer: coarse) {
+    .touch-optimize {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+  }
+}
+
+/* Mobile-first responsive containers */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--container-padding-mobile);
+  padding-left: var(--container-padding-mobile);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-right: var(--container-padding-tablet);
+    padding-left: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-right: var(--container-padding-desktop);
+    padding-left: var(--container-padding-desktop);
+  }
+}
+
+/* Improved button accessibility */
+.button-base {
+  @apply min-h-[44px] min-w-[44px] px-4 py-2;
+  touch-action: manipulation;
+}
+
+/* Grid system improvements */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--spacing-base-mobile);
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    gap: var(--spacing-base-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    gap: var(--spacing-base-desktop);
   }
 }
 
