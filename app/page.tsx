@@ -1,6 +1,5 @@
 'use client'
 
-import { spacing, typography } from './styles'
 import { faqData } from './data/faq'
 import { servicesData } from './data/services'
 import { caseStudiesData } from './data/case-studies'
