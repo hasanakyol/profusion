@@ -511,7 +511,7 @@ export default function Home() {
             We are fully remote, but maintain physical presence in London, Hamburg, Warsaw, Istanbul, and Bangalore.
           </p>
           
-          <hr className="border-neutral-400 my-8" />
+          <hr className="border-neutral-300 my-8" />
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Logo and Copyright */}
