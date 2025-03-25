@@ -23,7 +23,7 @@ export const servicesData: ServiceItem[] = [
       "Convert more customers with UX-driven design that scales. Combining Aviva's enterprise precision with startup-focused conversion optimization.",
     items: [
       "£7,500: Conversion-optimized Website Design",
-      "£15,000: Multi-platform Design System & Branding",
+      "£15,000: Multi-platform Design System",
     ],
   },
   {
